@@ -494,6 +494,208 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* ── MEMBERS PORTAL OVERLAY ── */
+  #members-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 9999;
+    overflow-y: auto;
+    background: #0a0a0a;
+  }
+  #members-overlay.open { display: block; }
+  #members-close-btn {
+    position: fixed;
+    top: 16px; left: 16px;
+    z-index: 10000;
+    background: #e05c2a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 1px;
+  }
+  #members-close-btn:hover { background: #c44e22; }
+
+  /* ── LOYALTY PORTAL CSS ── */
+  
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:#0a0a0a; color:#fff; min-height:100vh; }
+
+    /* ── NAV ── */
+    .nav { display:flex; justify-content:space-between; align-items:center; padding:18px 32px; background:#111; border-bottom:2px solid #e05c2a; }
+    .nav-logo { font-size:22px; font-weight:900; letter-spacing:2px; color:#e05c2a; }
+    .nav-tabs  { display:flex; gap:12px; }
+    .nav-tab   { padding:8px 18px; border-radius:6px; border:none; cursor:pointer; font-weight:600; font-size:13px; background:transparent; color:#aaa; transition:all .2s; }
+    .nav-tab.active,.nav-tab:hover { background:#e05c2a; color:#fff; }
+    .nav-user  { display:flex; align-items:center; gap:10px; font-size:13px; color:#aaa; }
+    .nav-user strong { color:#fff; }
+    .nav-user button { background:transparent; border:1px solid #444; color:#aaa; padding:5px 12px; border-radius:6px; cursor:pointer; font-size:12px; }
+    .nav-user button:hover { border-color:#e05c2a; color:#e05c2a; }
+
+    /* ── VIEWS ── */
+    .view { display:none; padding:32px; max-width:960px; margin:0 auto; }
+    .view.active { display:block; }
+
+    /* ── CARDS ── */
+    .card { background:#1a1a1a; border:1px solid #2a2a2a; border-radius:12px; padding:24px; margin-bottom:20px; }
+    .card-title { font-size:13px; text-transform:uppercase; letter-spacing:1.5px; color:#e05c2a; margin-bottom:8px; font-weight:700; }
+    .card-value { font-size:36px; font-weight:900; }
+    .card-sub   { font-size:13px; color:#888; margin-top:4px; }
+
+    /* ── GRIDS ── */
+    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+
+    /* ── TIER BADGES ── */
+    .tier-badge { display:inline-block; padding:6px 16px; border-radius:20px; font-weight:700; font-size:14px; margin-bottom:12px; }
+    .tier-STOCK { background:#333; color:#ccc; }
+    .tier-TUNED { background:#1a3a1a; color:#4caf50; }
+    .tier-BUILT { background:#1a2a4a; color:#64b5f6; }
+    .tier-ELITE { background:#3a1a0a; color:#e05c2a; }
+
+    /* ── PROGRESS ── */
+    .progress-wrap { background:#2a2a2a; border-radius:99px; height:12px; margin:12px 0 6px; overflow:hidden; }
+    .progress-bar  { height:12px; border-radius:99px; background:linear-gradient(90deg,#e05c2a,#ff8c55); transition:width .6s ease; }
+    .progress-label { font-size:12px; color:#888; }
+
+    /* ── PERKS ── */
+    .perks { list-style:none; margin-top:10px; }
+    .perks li { padding:6px 0; font-size:14px; color:#ccc; border-bottom:1px solid #222; }
+    .perks li::before { content:"✓ "; color:#e05c2a; font-weight:700; }
+
+    /* ── FORMS ── */
+    .form-group { margin-bottom:16px; }
+    label { display:block; font-size:13px; color:#aaa; margin-bottom:6px; font-weight:600; }
+    input,select,textarea { width:100%; background:#222; border:1px solid #333; border-radius:8px; padding:10px 14px; color:#fff; font-size:14px; outline:none; transition:border .2s; }
+    input:focus,select:focus { border-color:#e05c2a; }
+    select option { background:#222; }
+
+    /* ── BUTTONS ── */
+    .btn { padding:12px 24px; border-radius:8px; border:none; cursor:pointer; font-weight:700; font-size:14px; transition:all .2s; }
+    .btn-primary   { background:#e05c2a; color:#fff; }
+    .btn-primary:hover { background:#c44e22; }
+    .btn-secondary { background:#2a2a2a; color:#ccc; }
+    .btn-secondary:hover { background:#333; }
+    .btn-sm { padding:6px 14px; font-size:12px; }
+    .btn-outline { background:transparent; border:1px solid #e05c2a; color:#e05c2a; }
+    .btn-outline:hover { background:#e05c2a; color:#fff; }
+
+    /* ── TABLE ── */
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th { text-align:left; padding:10px 12px; color:#e05c2a; font-size:12px; text-transform:uppercase; letter-spacing:1px; border-bottom:1px solid #2a2a2a; }
+    td { padding:12px; border-bottom:1px solid #1e1e1e; color:#ccc; }
+    tr:hover td { background:#1e1e1e; }
+
+    /* ── SETTINGS ── */
+    .setting-row { display:flex; align-items:center; justify-content:space-between; padding:14px 0; border-bottom:1px solid #222; }
+    .setting-row:last-child { border-bottom:none; }
+    .setting-label { font-size:14px; color:#ccc; }
+    .setting-desc  { font-size:12px; color:#666; margin-top:2px; }
+    .setting-input { width:80px; text-align:center; }
+
+    /* ── TOAST ── */
+    #toast { position:fixed; bottom:24px; right:24px; background:#e05c2a; color:#fff; padding:12px 24px; border-radius:8px; font-weight:600; font-size:14px; display:none; z-index:999; animation:fadeIn .3s; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ── MISC ── */
+    .section-title { font-size:22px; font-weight:900; margin-bottom:20px; }
+    .flex-between  { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
+    .search-input  { max-width:260px; }
+
+    /* ════════════════════════════════════════
+       CUSTOMER PORTAL STYLES
+    ════════════════════════════════════════ */
+
+    /* Login Screen */
+    #screen-login {
+      display:flex; align-items:center; justify-content:center;
+      min-height:100vh; background:#0a0a0a;
+    }
+    .login-box {
+      background:#111; border:1px solid #2a2a2a; border-radius:16px;
+      padding:48px 40px; width:100%; max-width:420px; text-align:center;
+    }
+    .login-logo { font-size:28px; font-weight:900; color:#e05c2a; letter-spacing:3px; margin-bottom:6px; }
+    .login-sub  { font-size:14px; color:#666; margin-bottom:32px; }
+    .login-toggle { display:flex; background:#1a1a1a; border-radius:8px; margin-bottom:24px; overflow:hidden; }
+    .login-toggle button { flex:1; padding:10px; border:none; background:transparent; color:#888; font-size:13px; font-weight:600; cursor:pointer; transition:all .2s; }
+    .login-toggle button.active { background:#e05c2a; color:#fff; }
+
+    /* Member Portal Hero */
+    .portal-hero {
+      background:linear-gradient(135deg,#1a0a00,#2a1205);
+      border:1px solid #3a2010; border-radius:16px;
+      padding:32px; margin-bottom:24px; position:relative; overflow:hidden;
+    }
+    .portal-hero::before {
+      content:''; position:absolute; top:-40px; right:-40px;
+      width:180px; height:180px; border-radius:50%;
+      background:radial-gradient(circle,rgba(224,92,42,.15),transparent 70%);
+    }
+    .portal-hero-name  { font-size:28px; font-weight:900; margin-bottom:4px; }
+    .portal-hero-vehicle { font-size:14px; color:#888; margin-bottom:16px; }
+    .portal-hero-pts   { font-size:56px; font-weight:900; color:#e05c2a; line-height:1; }
+    .portal-hero-ptslabel { font-size:14px; color:#888; margin-top:4px; margin-bottom:20px; }
+    .portal-tier-row   { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+
+    /* Tier road */
+    .tier-road {
+      display:flex; gap:0; margin:24px 0 8px; position:relative;
+    }
+    .tier-road::before {
+      content:''; position:absolute; top:50%; left:0; right:0; height:3px;
+      background:#2a2a2a; transform:translateY(-50%); z-index:0;
+    }
+    .tier-stop {
+      flex:1; display:flex; flex-direction:column; align-items:center;
+      position:relative; z-index:1;
+    }
+    .tier-stop-dot {
+      width:20px; height:20px; border-radius:50%; border:3px solid #2a2a2a;
+      background:#0a0a0a; transition:all .3s;
+    }
+    .tier-stop.done .tier-stop-dot  { background:#e05c2a; border-color:#e05c2a; }
+    .tier-stop.curr .tier-stop-dot  { background:#fff; border-color:#e05c2a; box-shadow:0 0 0 4px rgba(224,92,42,.3); }
+    .tier-stop-label { font-size:10px; color:#555; margin-top:6px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; }
+    .tier-stop.done .tier-stop-label,
+    .tier-stop.curr .tier-stop-label { color:#e05c2a; }
+
+    /* Redeem cards */
+    .redeem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+    .redeem-card {
+      background:#1a1a1a; border:1px solid #2a2a2a; border-radius:12px;
+      padding:18px; text-align:center; transition:border .2s;
+    }
+    .redeem-card:hover { border-color:#e05c2a; }
+    .redeem-card.locked { opacity:.45; pointer-events:none; }
+    .redeem-icon  { font-size:28px; margin-bottom:8px; }
+    .redeem-title { font-size:14px; font-weight:700; margin-bottom:4px; }
+    .redeem-cost  { font-size:12px; color:#e05c2a; font-weight:700; margin-bottom:10px; }
+    .redeem-avail { font-size:11px; color:#555; }
+
+    /* Activity timeline */
+    .timeline { list-style:none; }
+    .timeline li { display:flex; gap:14px; padding:12px 0; border-bottom:1px solid #1e1e1e; align-items:flex-start; }
+    .timeline li:last-child { border-bottom:none; }
+    .tl-dot { width:10px; height:10px; border-radius:50%; background:#e05c2a; margin-top:5px; flex-shrink:0; }
+    .tl-info { flex:1; }
+    .tl-title { font-size:14px; color:#ccc; }
+    .tl-date  { font-size:12px; color:#555; margin-top:2px; }
+    .tl-pts   { font-size:14px; font-weight:700; color:#e05c2a; white-space:nowrap; }
+
+    @media(max-width:600px){
+      .grid-3,.grid-2,.redeem-grid{grid-template-columns:1fr;}
+      .nav{flex-direction:column;gap:12px;}
+      .login-box{padding:32px 20px;}
+      .portal-hero-pts{font-size:40px;}
+    }
+  
 </style>
 </head>
 <body>
@@ -510,6 +712,7 @@
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#videos">Videos</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#" onclick="openMembersPortal(); return false;">Members</a></li>
     <li><a href="#" class="nav-cta">Book Now</a></li>
   </ul>
   <div class="nav-hamburger" id="hamburger" onclick="toggleNav()">
@@ -807,5 +1010,1630 @@
     }, 4000);
   }
 </script>
+
+<!-- ════════ MEMBERS PORTAL OVERLAY ════════ -->
+<div id="members-overlay">
+  <button id="members-close-btn" onclick="closeMembersPortal()">← Back to Site</button>
+  
+
+<!-- ════════════════════════════════════════════════════
+     LOGIN / REGISTER SCREEN
+════════════════════════════════════════════════════ -->
+<div id="screen-login">
+  <div class="login-box">
+    <div class="login-logo">MOODY MEMBERS</div>
+    <div class="login-sub">Performance Loyalty Program</div>
+
+    <div class="login-toggle">
+      <button class="active" id="toggle-login-btn" onclick="switchAuth('login')">Member Login</button>
+      <button id="toggle-reg-btn" onclick="switchAuth('register')">Register</button>
+      <button id="toggle-admin-btn" onclick="switchAuth('admin')">Shop Admin</button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div id="auth-login" style="display:block;">
+      <div class="form-group"><label>Username</label><input type="text" id="login-username" placeholder="your username" autocomplete="username"></div>
+      <div class="form-group"><label>Password</label><input type="password" id="login-password" placeholder="••••••••"></div>
+      <button class="btn btn-primary" id="btn-login" style="width:100%;margin-top:4px;" onclick="doLogin()">Log In</button>
+      <div id="login-error" style="color:#e05c2a;font-size:13px;margin-top:10px;display:none;"></div>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div id="auth-register" style="display:none;">
+      <div class="form-group"><label>Full Name</label><input type="text" id="reg-name" placeholder="John Smith"></div>
+      <div class="form-group"><label>Username</label><input type="text" id="reg-username" placeholder="choose a username" autocomplete="username"></div>
+      <div class="form-group"><label>Email (optional)</label><input type="email" id="reg-email" placeholder="your@email.com"></div>
+      <div class="form-group"><label>Phone</label><input type="tel" id="reg-phone" placeholder="(909) 555-0000"></div>
+      <div class="form-group"><label>Vehicle (Year / Make / Model)</label><input type="text" id="reg-vehicle" placeholder="2020 Honda Civic Si"></div>
+      <div class="form-group"><label>Password</label><input type="password" id="reg-password" placeholder="Create a password"></div>
+      <div class="form-group"><label>Referral Code (optional)</label><input type="text" id="reg-referral" placeholder="Enter referral code"></div>
+      <button class="btn btn-primary" id="btn-register" style="width:100%;margin-top:4px;" onclick="doRegister()">Create Account</button>
+      <div id="reg-error" style="color:#e05c2a;font-size:13px;margin-top:10px;display:none;"></div>
+    </div>
+
+    <!-- ADMIN LOGIN -->
+    <div id="auth-admin" style="display:none;">
+      <div style="font-size:13px;color:#666;margin-bottom:20px;">Staff access only. Enter the shop admin password to continue.</div>
+      <div class="form-group"><label>Admin Password</label><input type="password" id="admin-password" placeholder="••••••••"></div>
+      <button class="btn btn-primary" style="width:100%;margin-top:4px;" id="btn-admin-login" onclick="doAdminLogin()">Enter Shop Dashboard</button>
+      <div id="admin-error" style="color:#e05c2a;font-size:13px;margin-top:10px;display:none;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     MAIN APP (shown after login)
+════════════════════════════════════════════════════ -->
+<div id="screen-portal" style="display:none;">
+
+  <!-- NAV -->
+  <div class="nav" id="main-nav">
+    <div class="nav-logo">MOODY MEMBERS</div>
+    <div class="nav-tabs" id="admin-tabs">
+      <button class="nav-tab active" onclick="showView('dashboard')">Dashboard</button>
+      <button class="nav-tab" onclick="showView('customers')">Customers</button>
+      <button class="nav-tab" onclick="showView('log-service')">Log Service</button>
+      <button class="nav-tab" onclick="showView('sponsors')">⭐ Sponsors</button>
+      <button class="nav-tab" onclick="showView('settings')">Settings</button>
+    </div>
+    <div class="nav-tabs" id="portal-tabs" style="display:none;">
+      <button class="nav-tab active" onclick="showPortalView('my-profile')">My Profile</button>
+      <button class="nav-tab" onclick="showPortalView('my-history')">Service History</button>
+      <button class="nav-tab" onclick="showPortalView('my-redeem')">Redeem Points</button>
+      <button class="nav-tab" id="tab-sponsor" onclick="showPortalView('my-sponsor')" style="display:none;">⭐ Sponsor</button>
+    </div>
+    <div class="nav-user" id="nav-user-info">
+      <span>Logged in as <strong id="nav-username"></strong></span>
+      <button onclick="logout()">Log Out</button>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
+  <!-- ══════════════════════════════════════
+       ADMIN: DASHBOARD
+  ══════════════════════════════════════ -->
+  <div id="view-dashboard" class="view active">
+    <div class="section-title">Shop Overview</div>
+    <div class="grid-3" style="margin-bottom:20px;">
+      <div class="card"><div class="card-title">Total Customers</div><div class="card-value" id="stat-customers">0</div><div class="card-sub">Enrolled members</div></div>
+      <div class="card"><div class="card-title">Points Issued</div><div class="card-value" id="stat-points">0</div><div class="card-sub">All time</div></div>
+      <div class="card"><div class="card-title">Revenue Tracked</div><div class="card-value" id="stat-revenue">$0</div><div class="card-sub">Via loyalty program</div></div>
+    </div>
+    <div class="card"><div class="card-title">Tier Breakdown</div><div class="grid-2" style="margin-top:12px;" id="tier-breakdown"></div></div>
+    <div class="card"><div class="card-title">Recent Activity</div>
+      <table><thead><tr><th>Customer</th><th>Action</th><th>Points</th><th>Date</th></tr></thead>
+      <tbody id="recent-activity"></tbody></table>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       ADMIN: CUSTOMERS
+  ══════════════════════════════════════ -->
+  <div id="view-customers" class="view">
+    <div class="flex-between">
+      <div class="section-title" style="margin-bottom:0;">Customers</div>
+      <button class="btn btn-primary" onclick="showView('add-customer')">+ Add Customer</button>
+    </div>
+    <input class="search-input" type="text" placeholder="Search by name or email…" oninput="filterCustomers(this.value)" style="margin-bottom:20px;">
+    <div id="customer-list"></div>
+  </div>
+
+  <div id="view-customer-detail" class="view">
+    <button class="btn btn-secondary btn-sm" onclick="showView('customers')" style="margin-bottom:20px;">← Back</button>
+    <div id="customer-detail-content"></div>
+  </div>
+
+  <div id="view-add-customer" class="view">
+    <button class="btn btn-secondary btn-sm" onclick="showView('customers')" style="margin-bottom:20px;">← Back</button>
+    <div class="section-title">Add New Customer</div>
+    <div class="card">
+      <div class="form-group"><label>Full Name</label><input type="text" id="new-name" placeholder="e.g. John Smith"></div>
+      <div class="form-group"><label>Username (for member login)</label><input type="text" id="new-username" placeholder="e.g. jsmith92"></div>
+      <div class="form-group"><label>Email</label><input type="email" id="new-email" placeholder="john@email.com"></div>
+      <div class="form-group"><label>Phone</label><input type="tel" id="new-phone" placeholder="(909) 555-0000"></div>
+      <div class="form-group"><label>Vehicle</label><input type="text" id="new-vehicle" placeholder="2020 Honda Civic Si"></div>
+      <div class="form-group"><label>Password (for member login)</label><input type="password" id="new-pass" placeholder="Set their password"></div>
+      <div class="form-group"><label>Referred By (optional)</label><input type="text" id="new-referrer" placeholder="Who referred them?"></div>
+      <button class="btn btn-primary" onclick="addCustomer()">Create Customer</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       ADMIN: LOG SERVICE
+  ══════════════════════════════════════ -->
+  <div id="view-log-service" class="view">
+    <div class="section-title">Log a Service</div>
+    <div class="card">
+      <div class="form-group"><label>Customer</label><select id="svc-customer"><option value="">-- Select Customer --</option></select></div>
+      <div class="form-group"><label>Service Type</label>
+        <select id="svc-type">
+          <option>Dyno Tune</option><option>ECU Flash / Remap</option><option>Suspension Install</option>
+          <option>Exhaust Install</option><option>Engine Build</option><option>Turbo / Supercharger Install</option>
+          <option>Oil Change</option><option>Diagnostic Scan</option><option>Brake Service</option>
+          <option>Custom Fabrication</option><option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Amount Charged ($)</label><input type="number" id="svc-amount" placeholder="0.00" min="0"></div>
+      <div class="form-group"><label>Notes (optional)</label><textarea id="svc-notes" rows="3" placeholder="Service details…"></textarea></div>
+      <div class="form-group"><label>Date</label><input type="date" id="svc-date"></div>
+      <div style="background:#1e1e1e;border-radius:8px;padding:14px;margin-bottom:16px;font-size:14px;color:#aaa;" id="svc-preview">Select a customer and amount to preview points.</div>
+      <button class="btn btn-primary" onclick="logService()">Log Service & Award Points</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       ADMIN: SETTINGS
+  ══════════════════════════════════════ -->
+  <div id="view-settings" class="view">
+    <div class="section-title">Program Settings</div>
+    <div class="card">
+      <div class="card-title">Points Rules</div>
+      <div class="setting-row"><div><div class="setting-label">Points per $1 spent</div><div class="setting-desc">$1 = X points</div></div><input class="setting-input" type="number" id="cfg-spend-pts" value="2" min="1"></div>
+      <div class="setting-row"><div><div class="setting-label">Points per referral</div><div class="setting-desc">Awarded on referral's first service</div></div><input class="setting-input" type="number" id="cfg-ref-pts" value="3" min="1"></div>
+      <div class="setting-row"><div><div class="setting-label">Points per Google review</div><div class="setting-desc">One-time bonus</div></div><input class="setting-input" type="number" id="cfg-review-pts" value="5" min="0"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Tier Thresholds</div>
+      <div class="setting-row"><div><div class="setting-label">⚙️ TUNED starts at (pts)</div></div><input class="setting-input" type="number" id="cfg-tuned" value="200" min="1"></div>
+      <div class="setting-row"><div><div class="setting-label">🚀 BUILT starts at (pts)</div></div><input class="setting-input" type="number" id="cfg-built" value="500" min="1"></div>
+      <div class="setting-row"><div><div class="setting-label">🏁 MOODY ELITE starts at (pts)</div></div><input class="setting-input" type="number" id="cfg-elite" value="1000" min="1"></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <div class="card-title" style="margin:0;">Redeemable Rewards</div>
+        <button class="btn btn-primary btn-sm" onclick="openRewardModal()">+ Add Reward</button>
+      </div>
+      <div id="rewards-list"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Admin Credentials</div>
+      <div class="setting-row"><div><div class="setting-label">Admin username</div></div><input class="setting-input" type="text" id="cfg-admin-user" placeholder="Moody"></div>
+      <div class="setting-row"><div><div class="setting-label">Admin password</div></div><input class="setting-input" type="password" id="cfg-admin-pass" placeholder="••••••••"></div>
+    </div>
+    <button class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       ADMIN: SPONSORS
+  ══════════════════════════════════════ -->
+  <div id="view-sponsors" class="view">
+    <div class="section-title">⭐ Sponsor Management</div>
+
+    <!-- Telegram link config -->
+    <div class="card">
+      <div class="card-title">Sponsor Telegram Group</div>
+      <div style="font-size:13px;color:#888;margin-bottom:12px;">Paste your Telegram invite link here. Only sponsors will see this button.</div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <input type="text" id="telegram-link-input" placeholder="https://t.me/+XXXXXXXX" style="flex:1;background:#1a1a1a;border:1px solid #333;color:#fff;padding:10px 14px;border-radius:8px;font-size:14px;">
+        <button class="btn btn-primary btn-sm" onclick="saveTelegramLink()">Save</button>
+      </div>
+      <div id="telegram-link-preview" style="margin-top:10px;font-size:12px;color:#555;"></div>
+    </div>
+
+    <!-- Add Event -->
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <div class="card-title" style="margin:0;">Events & Meetings</div>
+        <button class="btn btn-primary btn-sm" onclick="openEventModal()">+ Add Event</button>
+      </div>
+      <div id="admin-events-list"></div>
+    </div>
+
+    <!-- Media Tracker -->
+    <div class="card">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px;">
+        <div class="card-title" style="margin:0;">📊 Media Tracker</div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <span style="font-size:12px;color:#888;">Period:</span>
+          <button id="media-period-week" class="btn btn-sm" onclick="setMediaPeriod('week')" style="background:#e05c2a;color:#fff;">This Week</button>
+          <button id="media-period-month" class="btn btn-sm" onclick="setMediaPeriod('month')" style="background:#1a1a1a;color:#aaa;">This Month</button>
+          <button id="media-period-alltime" class="btn btn-sm" onclick="setMediaPeriod('alltime')" style="background:#1a1a1a;color:#aaa;">All Time</button>
+        </div>
+      </div>
+      <div style="font-size:13px;color:#888;margin-bottom:16px;">Track posts and referrals for each sponsor. Numbers reset automatically each period.</div>
+      <div id="media-tracker-table"></div>
+    </div>
+
+    <!-- Sponsor Members List -->
+    <div class="card">
+      <div class="card-title">All Members — Toggle Sponsor Role</div>
+      <div style="font-size:13px;color:#888;margin-bottom:16px;">Toggle the ⭐ button to grant or revoke sponsor access. Sponsors get their own tab with the Telegram link and event calendar.</div>
+      <div id="sponsor-members-list"></div>
+    </div>
+  </div>
+
+  <!-- Event Modal -->
+  <div id="event-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center;">
+    <div style="background:#1a1a1a;border-radius:12px;padding:28px;width:90%;max-width:440px;border:1px solid #333;">
+      <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:20px;" id="event-modal-title">Add Event</div>
+      <div class="form-group"><label>Event Title</label><input type="text" id="ev-title" placeholder="e.g. Shop Meet, Dyno Day…" style="background:#111;border:1px solid #333;color:#fff;padding:10px;border-radius:8px;width:100%;box-sizing:border-box;"></div>
+      <div class="form-group"><label>Type</label>
+        <select id="ev-type" style="background:#111;border:1px solid #333;color:#fff;padding:10px;border-radius:8px;width:100%;box-sizing:border-box;">
+          <option>📅 Meeting</option>
+          <option>🏎️ Car Meet</option>
+          <option>🔧 Shop Event</option>
+          <option>🏁 Track Day</option>
+          <option>🎉 Sponsor Event</option>
+          <option>📣 Announcement</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Date</label><input type="date" id="ev-date" style="background:#111;border:1px solid #333;color:#fff;padding:10px;border-radius:8px;width:100%;box-sizing:border-box;"></div>
+      <div class="form-group"><label>Time (optional)</label><input type="time" id="ev-time" style="background:#111;border:1px solid #333;color:#fff;padding:10px;border-radius:8px;width:100%;box-sizing:border-box;"></div>
+      <div class="form-group"><label>Location (optional)</label><input type="text" id="ev-location" placeholder="Address or venue name" style="background:#111;border:1px solid #333;color:#fff;padding:10px;border-radius:8px;width:100%;box-sizing:border-box;"></div>
+      <div class="form-group"><label>Notes (optional)</label><textarea id="ev-notes" rows="2" placeholder="Any extra details…" style="background:#111;border:1px solid #333;color:#fff;padding:10px;border-radius:8px;width:100%;box-sizing:border-box;resize:none;"></textarea></div>
+      <div style="display:flex;gap:10px;margin-top:8px;">
+        <button class="btn btn-primary" style="flex:1;" onclick="saveEvent()">Save Event</button>
+        <button class="btn btn-secondary" style="flex:1;" onclick="closeEventModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       CUSTOMER PORTAL: MY PROFILE
+  ══════════════════════════════════════ -->
+  <div id="view-my-profile" class="view">
+
+    <!-- HERO -->
+    <div class="portal-hero" id="portal-hero"></div>
+
+    <!-- TIER ROAD -->
+    <div class="card">
+      <div class="card-title">Your Journey</div>
+      <div class="tier-road" id="tier-road"></div>
+      <div class="progress-wrap" style="margin-top:16px;">
+        <div class="progress-bar" id="portal-progress-bar" style="width:0%"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:6px;">
+        <span style="font-size:12px;color:#888;" id="portal-progress-left"></span>
+        <span style="font-size:12px;color:#e05c2a;font-weight:700;" id="portal-progress-pct"></span>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="grid-3" style="margin-bottom:20px;" id="portal-stats"></div>
+
+    <!-- PERKS -->
+    <div class="card" id="portal-perks"></div>
+
+    <!-- NEXT TIER PREVIEW -->
+    <div class="card" id="portal-next-tier"></div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════
+       CUSTOMER PORTAL: SERVICE HISTORY
+  ══════════════════════════════════════ -->
+  <div id="view-my-history" class="view">
+    <div class="section-title">My Service History</div>
+    <div class="card">
+      <ul class="timeline" id="portal-timeline"></ul>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       CUSTOMER PORTAL: REDEEM POINTS
+  ══════════════════════════════════════ -->
+  <div id="view-my-redeem" class="view">
+    <div class="section-title">Redeem Your Points</div>
+    <div class="card" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div><div class="card-title">Available Balance</div><div class="card-value" style="color:#e05c2a;" id="redeem-balance">0 pts</div></div>
+        <div style="text-align:right;font-size:13px;color:#888;">Points never expire</div>
+      </div>
+    </div>
+    <div class="redeem-grid" id="redeem-options"></div>
+    <div style="font-size:12px;color:#555;margin-top:20px;text-align:center;">
+      To redeem, show this screen to a Moody Performance staff member at the shop.
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       CUSTOMER PORTAL: SPONSOR HUB
+  ══════════════════════════════════════ -->
+  <div id="view-my-sponsor" class="view">
+    <div class="section-title">⭐ Sponsor Hub</div>
+
+    <!-- Sponsor badge -->
+    <div class="card" style="text-align:center;padding:32px 20px;background:linear-gradient(135deg,#1a0f00,#2d1500);border:1px solid #e05c2a;">
+      <div style="font-size:48px;margin-bottom:12px;">⭐</div>
+      <div style="font-size:22px;font-weight:900;color:#e05c2a;letter-spacing:2px;">MOODY SPONSOR</div>
+      <div style="font-size:13px;color:#aaa;margin-top:8px;">You're part of the inner circle. Thank you for your support.</div>
+    </div>
+
+    <!-- Telegram Group CTA -->
+    <div class="card" style="text-align:center;">
+      <div class="card-title">🚀 Sponsor Group Chat</div>
+      <div style="font-size:13px;color:#888;margin-bottom:20px;">Connect with all Moody Sponsors — exclusive updates, early access, and direct line to the team.</div>
+      <button class="btn btn-primary" style="font-size:16px;padding:14px 32px;width:100%;" onclick="openSponsorTelegram()">
+        📲 Join Sponsor Telegram
+      </button>
+      <div style="font-size:11px;color:#555;margin-top:10px;">Sponsor-only access · Verified by admin</div>
+    </div>
+
+    <!-- My Media Stats -->
+    <div class="card" id="my-media-stats-card" style="display:none;">
+      <div class="card-title">📊 My Media Stats</div>
+      <div id="my-media-stats"></div>
+    </div>
+
+    <!-- Sponsor Leaderboard -->
+    <div class="card" id="sponsor-leaderboard-card" style="display:none;">
+      <div class="card-title">🏆 Sponsor Leaderboard</div>
+      <div id="sponsor-leaderboard"></div>
+    </div>
+
+    <!-- Upcoming Events / Meetings Calendar -->
+    <div class="card">
+      <div class="card-title">📅 Upcoming Events & Meetings</div>
+      <div id="sponsor-events-list" style="margin-top:8px;">
+        <div style="color:#555;font-size:13px;text-align:center;padding:20px;">Loading events…</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end screen-portal -->
+
+<script>
+// ═══════════════════════════════════════════════
+// CLOUD API — all data lives in the database now
+// ═══════════════════════════════════════════════
+const API = 'https://superagent-df2088bd.base44.app/functions/moodyMembers';
+
+// SHA-256 — password never leaves the browser in plaintext
+async function sha256(text) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+async function apiCall(payload) {
+  const res = await fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+  return res.json();
+}
+
+// ── CONFIG — persisted to cloud DB ──
+const config = {
+  tuned: 200,
+  built: 500,
+  elite: 1000,
+  dollarPerPoint: 0.5,
+  referralBonus: 3,
+  spendPts: 2,
+  reviewPts: 5,
+};
+
+async function loadConfigFromDB() {
+  const res = await apiCall({ action: 'load_config' });
+  if (res && res.config) {
+    Object.assign(config, res.config);
+  }
+}
+
+async function saveConfigToDB() {
+  return apiCall({ action: 'save_config', admin_password: adminPw, config });
+}
+
+// ── STATE ──
+let currentUser = null; // logged-in member object
+let customers = [];     // admin: all members
+let adminPw = '';       // set at login, used for all admin API calls
+let sponsorEvents = []; // cached events list
+let editingEventId = null; // for event modal edit mode
+let telegramLink = '';  // sponsor telegram invite link
+let mediaPeriod = 'week'; // 'week' or 'month'
+let mediaData = {};   // { memberId: { week: {posts, refs}, month: {posts, refs} } }
+
+// ── TIER HELPERS ──
+function getTierKey(pts) {
+  if(pts>=config.elite) return 'ELITE';
+  if(pts>=config.built)  return 'BUILT';
+  if(pts>=config.tuned)  return 'TUNED';
+  return 'STOCK';
+}
+function getTierName(pts) {
+  return {STOCK:'STOCK',TUNED:'TUNED',BUILT:'BUILT',ELITE:'MOODY ELITE'}[getTierKey(pts)];
+}
+function getTierEmoji(key) { return{STOCK:'🔧',TUNED:'⚙️',BUILT:'🚀',ELITE:'🏁'}[key]; }
+function getNextTier(pts) {
+  if(pts<config.tuned) return {name:'TUNED',threshold:config.tuned,emoji:'⚙️'};
+  if(pts<config.built) return {name:'BUILT',threshold:config.built,emoji:'🚀'};
+  if(pts<config.elite) return {name:'MOODY ELITE',threshold:config.elite,emoji:'🏁'};
+  return null;
+}
+function tierPerks(key) {
+  return {
+    STOCK:['5% off your first service','Access to member-only deals'],
+    TUNED:['5% off all services','Priority scheduling','10% off in your birthday month'],
+    BUILT:['10% off all services','Free diagnostic scan every visit','Early access to new products','Invited to exclusive shop events'],
+    ELITE:['15% off all services','Free oil change once per year','Dedicated service advisor','Wall of Fame + exclusive merch drops']
+  }[key]||[];
+}
+
+// ── TOAST ──
+function toast(msg) {
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.style.display='block';
+  setTimeout(()=>t.style.display='none',3000);
+}
+
+// ── LOADING ──
+function setLoading(btn, loading) {
+  if(loading) { btn.disabled=true; btn.dataset.orig=btn.textContent; btn.textContent='Loading...'; }
+  else { btn.disabled=false; btn.textContent=btn.dataset.orig||btn.textContent; }
+}
+
+// ════════════════════════════════════════════════
+// AUTH SCREENS
+// ════════════════════════════════════════════════
+function switchAuth(mode) {
+  document.getElementById('auth-login').style.display = mode==='login'?'block':'none';
+  document.getElementById('auth-register').style.display = mode==='register'?'block':'none';
+  document.getElementById('auth-admin').style.display = mode==='admin'?'block':'none';
+  document.getElementById('toggle-login-btn').classList.toggle('active', mode==='login');
+  document.getElementById('toggle-reg-btn').classList.toggle('active', mode==='register');
+  document.getElementById('toggle-admin-btn').classList.toggle('active', mode==='admin');
+}
+
+async function doLogin() {
+  const btn = document.getElementById('btn-login');
+  const username = document.getElementById('login-username').value.trim();
+  const password = document.getElementById('login-password').value.trim();
+  if(!username||!password) { toast('Fill in all fields'); return; }
+  setLoading(btn, true);
+  const pwHash = await sha256(password);
+  const res = await apiCall({ action:'login', username, password: pwHash });
+  setLoading(btn, false);
+  if(res.error) { toast('❌ '+res.error); return; }
+  currentUser = res.member;
+  showPortal();
+}
+
+async function doRegister() {
+  const btn = document.getElementById('btn-register');
+  const full_name = document.getElementById('reg-name').value.trim();
+  const username = document.getElementById('reg-username').value.trim();
+  const password = document.getElementById('reg-password').value.trim();
+  const email = document.getElementById('reg-email').value.trim();
+  const phone = document.getElementById('reg-phone').value.trim();
+  const vehicle = document.getElementById('reg-vehicle').value.trim();
+  const referred_by = document.getElementById('reg-referral').value.trim();
+  if(!full_name||!username||!password) { toast('Name, username and password are required'); return; }
+  setLoading(btn, true);
+  const pwHash = await sha256(password);
+  const res = await apiCall({ action:'register', full_name, username, password: pwHash, email, phone, vehicle, referred_by });
+  setLoading(btn, false);
+  if(res.error) { toast('❌ '+res.error); return; }
+  currentUser = res.member;
+  toast('🎉 Welcome to Moody Members!');
+  showPortal();
+}
+
+async function doAdminLogin() {
+  const pw = document.getElementById('admin-password').value.trim();
+  if (!pw) { toast('Enter admin password'); return; }
+  const btn = document.getElementById('btn-admin-login');
+  setLoading(btn, true);
+  const res = await apiCall({ action:'list', admin_password: pw });
+  setLoading(btn, false);
+  if(res.error) { toast('❌ '+res.error); return; }
+  customers = res.members.filter(m => !['__rewards__','__config__'].includes(m.username));
+  adminPw = pw;
+  document.getElementById('screen-login').style.display='none';
+  document.getElementById('screen-portal').style.display='block';
+  loadRewardsFromDB();
+  loadConfigFromDB();
+  renderAdmin();
+}
+
+function showPortal() {
+  document.getElementById('screen-login').style.display='none';
+  document.getElementById('screen-portal').style.display='block';
+  document.getElementById('admin-tabs').style.display='none';
+  document.getElementById('portal-tabs').style.display='flex';
+  document.querySelectorAll('.view').forEach(v => v.style.display='none');
+  document.getElementById('view-my-profile').style.display='block';
+  // Show/hide sponsor tab based on role
+  const sponsorTab = document.getElementById('tab-sponsor');
+  if (sponsorTab) sponsorTab.style.display = currentUser && currentUser.is_sponsor ? 'inline-block' : 'none';
+  renderPortalProfile();
+}
+
+function logout() {
+  currentUser=null;
+  document.getElementById('screen-portal').style.display='none';
+  document.getElementById('screen-login').style.display='flex';
+  // Reset nav tabs back to default state
+  document.getElementById('admin-tabs').style.display='flex';
+  document.getElementById('portal-tabs').style.display='none';
+  document.getElementById('login-username').value='';
+  document.getElementById('login-password').value='';
+  switchAuth('login');
+}
+
+// ════════════════════════════════════════════════
+// MEMBER PORTAL
+// ════════════════════════════════════════════════
+function showPortalTab(tab) {
+  showPortalView(tab);
+}
+
+function showPortalView(tab) {
+  // Hide all views
+  document.querySelectorAll('.view').forEach(v=>v.style.display='none');
+  // Show the target view — IDs are view-my-profile, view-my-history, view-my-redeem
+  const viewId = 'view-my-' + tab.replace('my-','');
+  const el = document.getElementById(viewId);
+  if(el) el.style.display='block';
+  // Update active tab button
+  document.querySelectorAll('#portal-tabs .nav-tab').forEach(t=>t.classList.remove('active'));
+  const btn = document.querySelector(`#portal-tabs button[onclick="showPortalView('${tab}')"]`);
+  if(btn) btn.classList.add('active');
+  // Render content
+  if(tab==='my-profile' || tab==='profile') renderPortalProfile();
+  if(tab==='my-redeem' || tab==='redeem') renderPortalRedeem();
+  if(tab==='my-history' || tab==='history') renderPortalHistory();
+  if(tab==='my-sponsor') renderSponsorHub();
+}
+
+function renderPortalProfile() {
+  const c = currentUser;
+  const key = getTierKey(c.points);
+  const next = getNextTier(c.points);
+  const pct = next ? Math.min(100,Math.round((c.points/next.threshold)*100)) : 100;
+
+  document.getElementById('nav-username').textContent = c.full_name;
+
+  const tiers = ['STOCK','TUNED','BUILT','ELITE'];
+  const roadHTML = tiers.map(t => {
+    const done = tiers.indexOf(t) < tiers.indexOf(key);
+    const curr = t === key;
+    return `<div class="tier-stop ${done?'done':''} ${curr?'curr':''}">
+      <div class="tier-stop-dot"></div>
+      <div class="tier-stop-label">${getTierEmoji(t)} ${t}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('portal-hero').innerHTML = `
+    <div class="portal-hero-name">${c.full_name}</div>
+    <div class="portal-hero-vehicle">${c.vehicle||'Moody Performance Member'}</div>
+    <div class="portal-hero-pts">${c.points.toLocaleString()}</div>
+    <div class="portal-hero-ptslabel">TOTAL POINTS</div>
+    <div class="portal-tier-row">
+      <span class="tier-badge tier-${key}" style="margin-bottom:0;font-size:16px;">${getTierEmoji(key)} ${getTierName(c.points)}</span>
+      ${next ? `<span style="font-size:13px;color:#888;">${next.threshold-c.points} pts until ${next.emoji} ${next.name}</span>` : '<span style="font-size:13px;color:#e05c2a;">🏁 You&#39;ve reached the top tier!</span>'}
+    </div>
+    <div class="tier-road" id="tier-road">${roadHTML}</div>
+    ${next?`<div class="progress-wrap"><div class="progress-bar" style="width:${pct}%"></div></div><div class="progress-label">${pct}% to ${next.name}</div>`:'<div style="font-size:13px;color:#e05c2a;margin-top:8px;">🏁 Max tier unlocked!</div>'}
+  `;
+
+  const perks = tierPerks(key);
+  document.getElementById('portal-perks').innerHTML = `
+    <div class="card-title">Your ${getTierName(c.points)} Perks</div>
+    <ul class="perks">${perks.map(p=>`<li>${p}</li>`).join('')}</ul>
+  `;
+
+  document.getElementById('portal-stats').innerHTML = `
+    <div class="card"><div class="card-title">Total Points</div><div class="card-value">${c.points.toLocaleString()}</div><div class="card-sub">Lifetime earned</div></div>
+    <div class="card"><div class="card-title">Total Spent</div><div class="card-value">$${(c.total_spent||0).toLocaleString()}</div><div class="card-sub">At Moody Performance</div></div>
+    <div class="card"><div class="card-title">Visits</div><div class="card-value">${c.visits||0}</div><div class="card-sub">Service appointments</div></div>
+  `;
+
+  document.getElementById('portal-referral').innerHTML = `
+    <div class="card-title">Your Referral Code</div>
+    <div style="font-size:28px;font-weight:900;letter-spacing:4px;color:#e05c2a;margin:12px 0;">${c.referral_code}</div>
+    <div style="font-size:13px;color:#666;">Share this code with friends. When they sign up, you earn ${config.referralBonus} bonus points!</div>
+    <button class="btn btn-outline btn-sm" style="margin-top:12px;" onclick="navigator.clipboard.writeText('${c.referral_code}').then(()=>toast('✅ Copied!'))">Copy Code</button>
+  `;
+}
+
+// Rewards — loaded from DB on admin login, defaults used as fallback
+let rewards = [
+  {id:'r1',title:'$10 Off Service',cost:50,icon:'💵',minTier:'STOCK'},
+  {id:'r2',title:'Free Oil Change',cost:200,icon:'🛢️',minTier:'TUNED'},
+  {id:'r3',title:'15% Off Next Visit',cost:150,icon:'🔖',minTier:'STOCK'},
+  {id:'r4',title:'Free Diagnostic Scan',cost:100,icon:'🔍',minTier:'STOCK'},
+  {id:'r5',title:'Moody Merch Drop',cost:300,icon:'👕',minTier:'BUILT'},
+  {id:'r6',title:'Free Alignment Check',cost:75,icon:'⚙️',minTier:'STOCK'},
+];
+
+let editingRewardId = null;   // null = adding new, set = editing existing
+
+// ── Persist rewards to the DB as a special "settings" member record ──
+async function saveRewardsToDB() {
+  const res = await apiCall({ action:'save_rewards', admin_password:adminPw, rewards });
+  if(res && res.ok) return true;
+  // fall back silently — rewards still work from memory this session
+  return false;
+}
+
+async function loadRewardsFromDB() {
+  const res = await apiCall({ action:'load_rewards' });
+  if(res && res.rewards && Array.isArray(res.rewards) && res.rewards.length > 0) {
+    rewards = res.rewards;
+  }
+}
+
+function renderRewardsList() {
+  const el = document.getElementById('rewards-list');
+  if(!el) return;
+  if(!rewards.length) {
+    el.innerHTML = '<div style="color:#555;font-size:13px;text-align:center;padding:20px 0;">No rewards yet. Click + Add Reward to create one.</div>';
+    return;
+  }
+  const tierLabels = {STOCK:'Any member',TUNED:'TUNED+',BUILT:'BUILT+',ELITE:'ELITE only'};
+  el.innerHTML = rewards.map(r => `
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #2a2a2a;">
+      <div style="font-size:24px;width:36px;text-align:center;">${r.icon}</div>
+      <div style="flex:1;">
+        <div style="font-size:14px;font-weight:700;color:#fff;">${r.title}</div>
+        <div style="font-size:12px;color:#e05c2a;">${r.cost} pts &nbsp;·&nbsp; <span style="color:#888;">${tierLabels[r.minTier]||r.minTier}</span></div>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-outline btn-sm" onclick="openRewardModal('${r.id}')">Edit</button>
+        <button class="btn btn-sm" style="background:#3a1a1a;color:#e05c2a;border:1px solid #5a2a2a;" onclick="deleteReward('${r.id}')">Del</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function openRewardModal(id) {
+  editingRewardId = id || null;
+  const modal = document.getElementById('reward-modal');
+  modal.style.display = 'flex';
+  if(id) {
+    const r = rewards.find(x=>x.id===id);
+    document.getElementById('reward-modal-title').textContent = 'Edit Reward';
+    document.getElementById('rwd-icon').value = r.icon;
+    document.getElementById('rwd-title').value = r.title;
+    document.getElementById('rwd-cost').value = r.cost;
+    document.getElementById('rwd-tier').value = r.minTier;
+  } else {
+    document.getElementById('reward-modal-title').textContent = 'Add Reward';
+    document.getElementById('rwd-icon').value = '';
+    document.getElementById('rwd-title').value = '';
+    document.getElementById('rwd-cost').value = '';
+    document.getElementById('rwd-tier').value = 'STOCK';
+  }
+}
+
+function closeRewardModal() {
+  document.getElementById('reward-modal').style.display = 'none';
+  editingRewardId = null;
+}
+
+async function saveRewardModal() {
+  const icon  = document.getElementById('rwd-icon').value.trim() || '🎁';
+  const title = document.getElementById('rwd-title').value.trim();
+  const cost  = parseInt(document.getElementById('rwd-cost').value)||0;
+  const tier  = document.getElementById('rwd-tier').value;
+  if(!title) { toast('Enter a reward name'); return; }
+  if(!cost)  { toast('Enter a point cost');  return; }
+
+  if(editingRewardId) {
+    const idx = rewards.findIndex(x=>x.id===editingRewardId);
+    if(idx>=0) rewards[idx] = { id:editingRewardId, icon, title, cost, minTier:tier };
+  } else {
+    rewards.push({ id:'r'+Date.now(), icon, title, cost, minTier:tier });
+  }
+  closeRewardModal();
+  await saveRewardsToDB();
+  renderRewardsList();
+  toast(editingRewardId ? '✅ Reward updated' : '✅ Reward added');
+}
+
+async function deleteReward(id) {
+  if(!confirm('Delete this reward? Members will no longer see it.')) return;
+  rewards = rewards.filter(x=>x.id!==id);
+  await saveRewardsToDB();
+  renderRewardsList();
+  toast('🗑️ Reward deleted');
+}
+
+function renderPortalRedeem() {
+  const c = currentUser;
+  const tierOrder = ['STOCK','TUNED','BUILT','ELITE'];
+  const userTierIdx = tierOrder.indexOf(getTierKey(c.points));
+
+  // Update the available balance slot in the static HTML
+  const balanceEl = document.getElementById('redeem-balance');
+  if(balanceEl) balanceEl.textContent = (c.points||0).toLocaleString() + ' pts';
+
+  // Populate the rewards grid
+  const gridEl = document.getElementById('redeem-options');
+  if(!gridEl) return;
+  gridEl.innerHTML = rewards.map(r => {
+    const reqIdx = tierOrder.indexOf(r.minTier);
+    const locked = userTierIdx < reqIdx || (c.points||0) < r.cost;
+    return `<div class="redeem-card ${locked?'locked':''}">
+      <div class="redeem-icon">${r.icon}</div>
+      <div class="redeem-title">${r.title}</div>
+      <div class="redeem-cost">${r.cost} pts</div>
+      ${reqIdx>0?`<div class="redeem-avail" style="font-size:11px;color:#888;">Requires ${r.minTier}</div>`:'<div class="redeem-avail" style="font-size:11px;color:#e05c2a;">Available now</div>'}
+      ${!locked?`<button class="btn btn-outline btn-sm" style="margin-top:8px;width:100%;" onclick="redeemReward('${r.id}',${r.cost},'${r.title}')">Redeem</button>`:'<div style="font-size:11px;color:#444;margin-top:8px;">${(c.points||0) < r.cost ? "Need more points" : "Tier locked"}</div>'}
+    </div>`;
+  }).join('');
+}
+
+async function redeemReward(id, cost, title) {
+  const c = currentUser;
+  if(c.points < cost) { toast('Not enough points!'); return; }
+  if(!confirm(`Redeem ${cost} points for "${title}"?\n\nShow this to shop staff to complete your redemption.`)) return;
+
+  const newPoints = c.points - cost;
+  const newHistory = [...(c.history||[]), {
+    date: new Date().toLocaleDateString(),
+    type: '🎁 Redemption: ' + title,
+    amount: '0.00',
+    points: -cost,
+    notes: 'Show to staff at Moody Performance'
+  }];
+
+  const res = await apiCall({ action:'update', id:c.id, points:newPoints, history:newHistory });
+  if(res.error) { toast('❌ '+res.error); return; }
+  currentUser = res.member;
+  toast('✅ Redeemed! Show staff your screen.');
+  renderPortalRedeem();
+  renderPortalProfile();
+}
+
+function renderPortalHistory() {
+  const hist = (currentUser.history||[]).slice().reverse();
+  document.getElementById('portal-timeline').innerHTML = hist.length ? hist.map(h=>`
+    <li>
+      <div class="tl-dot" style="background:${h.points<0?'#888':'#e05c2a'};"></div>
+      <div class="tl-info">
+        <div class="tl-title">${h.type}</div>
+        <div class="tl-date">${h.date}${h.notes?` · ${h.notes}`:''} </div>
+        ${parseFloat(h.amount)>0?`<div style="font-size:13px;color:#888;margin-top:2px;">Amount: $${h.amount}</div>`:''}
+      </div>
+      <div class="tl-pts" style="color:${h.points<0?'#888':'#e05c2a'}">${h.points<0?'':'+'}"${h.points} pts</div>
+    </li>`).join('') : '<li style="color:#555;padding:20px 0;">No service history yet.</li>';
+}
+
+// ════════════════════════════════════════════════
+// ADMIN PANEL
+// ════════════════════════════════════════════════
+function showAdminTab(tab) {
+  showView(tab);
+}
+
+function showView(tab) {
+  // Hide all views
+  document.querySelectorAll('.view').forEach(v => v.style.display='none');
+  // Show the target view — IDs are view-dashboard, view-customers, view-log-service, view-settings
+  const el = document.getElementById('view-' + tab);
+  if(el) el.style.display = 'block';
+  // Update active state on admin nav tabs
+  document.querySelectorAll('#admin-tabs .nav-tab').forEach(t => t.classList.remove('active'));
+  const btn = document.querySelector(`#admin-tabs button[onclick="showView('${tab}')"]`);
+  if(btn) btn.classList.add('active');
+  // Render content
+  if(tab==='customers') renderAdminCustomers();
+  if(tab==='dashboard') renderAdminOverview();
+  if(tab==='settings') renderAdminSettings();
+  if(tab==='log-service') renderLogService();
+  if(tab==='sponsors') renderAdminSponsors();
+}
+
+function renderAdmin() {
+  // Ensure admin nav is shown, member nav hidden
+  document.getElementById('admin-tabs').style.display='flex';
+  document.getElementById('portal-tabs').style.display='none';
+  // Hide all views, show dashboard
+  document.querySelectorAll('.view').forEach(v => v.style.display='none');
+  document.getElementById('view-dashboard').style.display='block';
+  renderAdminOverview();
+}
+
+function renderLogService() {
+  const sel = document.getElementById('svc-customer');
+  if (!sel) return;
+  // Sort customers alphabetically
+  const sorted = [...customers].filter(c => c.username !== '__rewards__' && c.username !== '__config__')
+                               .sort((a,b) => a.full_name.localeCompare(b.full_name));
+  sel.innerHTML = '<option value="">-- Select Customer --</option>' +
+    sorted.map(c => `<option value="${c.id}">${c.full_name} · ${c.tier} · ${c.points} pts</option>`).join('');
+
+  // Set today's date as default
+  const dateEl = document.getElementById('svc-date');
+  if (dateEl && !dateEl.value) dateEl.value = new Date().toISOString().split('T')[0];
+
+  // Live points preview when customer or amount changes
+  sel.onchange = updateSvcPreview;
+  const amtEl = document.getElementById('svc-amount');
+  if (amtEl) amtEl.oninput = updateSvcPreview;
+}
+
+function updateSvcPreview() {
+  const sel = document.getElementById('svc-customer');
+  const amt = parseFloat(document.getElementById('svc-amount').value) || 0;
+  const preview = document.getElementById('svc-preview');
+  if (!preview) return;
+  if (!sel.value || amt <= 0) {
+    preview.innerHTML = 'Select a customer and amount to preview points.';
+    return;
+  }
+  const cust = customers.find(c => c.id === sel.value);
+  const earned = Math.floor(amt * (config.spendPts || 2));
+  const newTotal = (cust ? cust.points : 0) + earned;
+  preview.innerHTML = `<span style="color:#e05c2a;font-weight:700;">+${earned} pts</span> earned &nbsp;·&nbsp; New total: <strong>${newTotal} pts</strong>` +
+    (cust ? ` &nbsp;·&nbsp; Current tier: <span class="tier-badge tier-${getTierKey(cust.points)}" style="padding:2px 8px;font-size:12px;">${cust.tier}</span>` : '');
+}
+
+function renderAdminOverview() {
+  const total = customers.length;
+  const totalPts = customers.reduce((s,c)=>s+(c.points||0),0);
+  const totalSpent = customers.reduce((s,c)=>s+(c.total_spent||0),0);
+  const tierCounts = {STOCK:0,TUNED:0,BUILT:0,ELITE:0};
+  customers.forEach(c=>{ const k=getTierKey(c.points); tierCounts[k]=(tierCounts[k]||0)+1; });
+
+  // Update stat cards (static HTML slots)
+  if(document.getElementById('stat-customers')) document.getElementById('stat-customers').textContent = total;
+  if(document.getElementById('stat-points')) document.getElementById('stat-points').textContent = totalPts.toLocaleString();
+  if(document.getElementById('stat-revenue')) document.getElementById('stat-revenue').textContent = '$'+totalSpent.toLocaleString();
+
+  // Tier breakdown
+  const tb = document.getElementById('tier-breakdown');
+  if(tb) tb.innerHTML = Object.entries(tierCounts).map(([k,v])=>`
+    <div style="display:flex;align-items:center;gap:10px;padding:10px;background:#111;border-radius:8px;">
+      <span class="tier-badge tier-${k}" style="margin:0;">${getTierEmoji(k)} ${k}</span>
+      <span style="font-size:20px;font-weight:900;">${v}</span>
+      <span style="font-size:12px;color:#555;">members</span>
+    </div>`).join('');
+
+  // Recent activity — last 10 service history entries across all members
+  const allActivity = [];
+  customers.forEach(c => {
+    (c.history||[]).forEach(h => allActivity.push({...h, member: c.full_name}));
+  });
+  allActivity.sort((a,b)=>new Date(b.date)-new Date(a.date));
+  const ra = document.getElementById('recent-activity');
+  if(ra) ra.innerHTML = allActivity.slice(0,10).map(h=>`
+    <tr>
+      <td><strong>${h.member}</strong></td>
+      <td>${h.type}</td>
+      <td style="color:#e05c2a;">${h.points>0?'+':''}${h.points} pts</td>
+      <td style="color:#666;">${h.date||''}</td>
+    </tr>`).join('') || '<tr><td colspan="4" style="color:#555;text-align:center;padding:20px;">No activity yet</td></tr>';
+}
+
+let searchTerm='';
+function filterCustomers(val) {
+  searchTerm = val;
+  renderAdminCustomers();
+}
+
+function renderAdminCustomers() {
+  const filtered = customers.filter(c=>
+    (c.full_name||'').toLowerCase().includes(searchTerm.toLowerCase()) ||
+    (c.username||'').toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  const container = document.getElementById('customer-list');
+  if(!container) return;
+  container.innerHTML = `
+    <div class="card" style="padding:0;overflow:hidden;">
+      <table>
+        <thead><tr>
+          <th>Name</th><th>Username</th><th>Tier</th><th>Points</th><th>Spent</th><th>Visits</th><th>Actions</th>
+        </tr></thead>
+        <tbody>
+          ${filtered.length ? filtered.map(c=>`<tr>
+            <td><strong>${c.full_name}</strong></td>
+            <td style="color:#666;">@${c.username||'-'}</td>
+            <td><span class="tier-badge tier-${getTierKey(c.points)}" style="margin:0;font-size:12px;">${getTierName(c.points)}</span></td>
+            <td style="color:#e05c2a;font-weight:700;">${c.points||0}</td>
+            <td>$${(c.total_spent||0).toLocaleString()}</td>
+            <td>${c.visits||0}</td>
+            <td>
+              <button class="btn btn-outline btn-sm" onclick="openLogService('${c.id}')">+ Service</button>
+              <button class="btn btn-sm" style="background:#1a1a1a;color:#aaa;margin-left:4px;" onclick="adjustPoints('${c.id}')">Adjust Pts</button>
+              <button class="btn btn-sm" style="background:#2a1a1a;color:#e05c2a;margin-left:4px;" onclick="deleteMember('${c.id}')">Delete</button>
+            </td>
+          </tr>`).join('') : '<tr><td colspan="7" style="color:#555;text-align:center;padding:20px;">No members found</td></tr>'}
+        </tbody>
+      </table>
+    </div>`;
+}
+
+async function logService() {
+  const id = document.getElementById('svc-customer').value;
+  const type = document.getElementById('svc-type').value;
+  const amount = document.getElementById('svc-amount').value;
+  const notes = document.getElementById('svc-notes').value.trim();
+  const date = document.getElementById('svc-date').value;
+
+  if (!id)     { toast('⚠️ Select a customer first'); return; }
+  if (!amount || parseFloat(amount) <= 0) { toast('⚠️ Enter a valid amount'); return; }
+
+  const btn = document.querySelector('[onclick="logService()"]');
+  if (btn) { btn.disabled = true; btn.textContent = 'Saving…'; }
+
+  const res = await apiCall({
+    action: 'log_service',
+    admin_password: adminPw,
+    id,
+    service: { type, amount: parseFloat(amount), notes, date }
+  });
+
+  if (btn) { btn.disabled = false; btn.textContent = 'Log Service & Award Points'; }
+
+  if (res.error) { toast('❌ ' + res.error); return; }
+
+  // Update local customers array so the UI reflects the change immediately
+  const idx = customers.findIndex(c => c.id === id);
+  if (idx >= 0) customers[idx] = res.member;
+
+  const earned = Math.floor(parseFloat(amount) * (config.spendPts || 2));
+  toast(`✅ Service logged! +${earned} pts awarded to ${res.member.full_name}`);
+
+  // Reset form
+  document.getElementById('svc-customer').value = '';
+  document.getElementById('svc-amount').value = '';
+  document.getElementById('svc-notes').value = '';
+  document.getElementById('svc-preview').innerHTML = 'Select a customer and amount to preview points.';
+
+  // Re-populate dropdown with updated points
+  renderLogService();
+}
+
+async function openLogService(id) {
+  const type = prompt('Service type (e.g. Oil Change, Tune, Wrap):');
+  if(!type) return;
+  const amount = prompt('Service amount ($):');
+  if(!amount) return;
+  const notes = prompt('Notes (optional):') || '';
+
+  const res = await apiCall({ action:'log_service', admin_password:adminPw, id, service:{ type, amount, notes } });
+  if(res.error) { toast('❌ '+res.error); return; }
+
+  // Update local customers array
+  const idx = customers.findIndex(c=>c.id===id);
+  if(idx>=0) customers[idx] = res.member;
+  toast(`✅ Service logged! +${Math.floor(parseFloat(amount)*2)} pts`);
+  renderAdminCustomers();
+}
+
+async function adjustPoints(id) {
+  const delta = parseInt(prompt('Enter points to add (or negative to subtract):'));
+  if(isNaN(delta)) return;
+  const member = customers.find(c=>c.id===id);
+  if(!member) return;
+  const newPoints = Math.max(0, (member.points||0)+delta);
+  const res = await apiCall({ action:'update', id, points:newPoints, admin_password:adminPw });
+  if(res.error) { toast('❌ '+res.error); return; }
+  const idx = customers.findIndex(c=>c.id===id);
+  if(idx>=0) customers[idx] = res.member;
+  toast(`✅ Points adjusted`);
+  renderAdminCustomers();
+}
+
+async function deleteMember(id) {
+  if(!confirm('Delete this member? This cannot be undone.')) return;
+  const res = await apiCall({ action:'delete', admin_password:adminPw, id });
+  if(res.error) { toast('❌ '+res.error); return; }
+  customers = customers.filter(c=>c.id!==id);
+  toast('🗑 Member deleted');
+  renderAdminCustomers();
+}
+
+function renderAdminSettings() {
+  // Pre-fill all fields from live config
+  const set = (id, val) => { const el = document.getElementById(id); if(el) el.value = val; };
+  set('cfg-spend-pts', config.spendPts);
+  set('cfg-ref-pts',   config.referralBonus);
+  set('cfg-review-pts',config.reviewPts);
+  set('cfg-tuned',     config.tuned);
+  set('cfg-built',     config.built);
+  set('cfg-elite',     config.elite);
+  renderRewardsList();
+}
+
+async function saveSettings() {
+  const btn = document.querySelector('[onclick="saveSettings()"]');
+  if(btn) { btn.disabled = true; btn.textContent = 'Saving...'; }
+
+  config.spendPts      = parseInt(document.getElementById('cfg-spend-pts').value)  || 2;
+  config.referralBonus = parseInt(document.getElementById('cfg-ref-pts').value)     || 3;
+  config.reviewPts     = parseInt(document.getElementById('cfg-review-pts').value)  || 5;
+  config.tuned         = parseInt(document.getElementById('cfg-tuned').value)       || 200;
+  config.built         = parseInt(document.getElementById('cfg-built').value)       || 500;
+  config.elite         = parseInt(document.getElementById('cfg-elite').value)       || 1000;
+
+  const res = await saveConfigToDB();
+  if(btn) { btn.disabled = false; btn.textContent = 'Save Settings'; }
+  if(res && res.ok) {
+    toast('✅ Settings saved');
+  } else {
+    toast('⚠️ Saved locally — DB write failed');
+  }
+}
+
+function adminLogout() {
+  customers=[];
+  document.getElementById('screen-portal').style.display='none';
+  document.getElementById('screen-login').style.display='flex';
+  document.getElementById('admin-password').value='';
+}
+
+// ════════════════════════════════════════════════════════
+// SPONSOR — MEMBER SIDE
+// ════════════════════════════════════════════════════════
+
+async function renderSponsorHub() {
+  // Load events + config (telegram link + media data)
+  const [evRes, cfgRes] = await Promise.all([
+    apiCall({ action: 'load_events' }),
+    apiCall({ action: 'load_config' }),
+  ]);
+  sponsorEvents = evRes.events || [];
+  if (cfgRes.config) {
+    if (cfgRes.config.telegramLink) telegramLink = cfgRes.config.telegramLink;
+    if (cfgRes.config.mediaData) mediaData = cfgRes.config.mediaData;
+  }
+  renderSponsorEvents();
+  renderMemberMediaStats();
+}
+
+function renderSponsorEvents() {
+  const container = document.getElementById('sponsor-events-list');
+  if (!container) return;
+
+  if (!sponsorEvents.length) {
+    container.innerHTML = '<div style="color:#555;font-size:13px;text-align:center;padding:24px;">No upcoming events yet. Check back soon!</div>';
+    return;
+  }
+
+  const today = new Date(); today.setHours(0,0,0,0);
+  const upcoming = sponsorEvents
+    .filter(e => new Date(e.date) >= today)
+    .sort((a,b) => new Date(a.date) - new Date(b.date));
+  const past = sponsorEvents
+    .filter(e => new Date(e.date) < today)
+    .sort((a,b) => new Date(b.date) - new Date(a.date));
+
+  const renderEvent = (e, isPast) => {
+    const d = new Date(e.date + 'T00:00:00');
+    const dateStr = d.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric', year:'numeric' });
+    const timeStr = e.time ? ` · ${formatTime12(e.time)}` : '';
+    return `
+    <div style="display:flex;gap:14px;padding:14px;background:${isPast?'#0f0f0f':'#111'};border-radius:10px;margin-bottom:10px;border-left:3px solid ${isPast?'#333':'#e05c2a'};">
+      <div style="text-align:center;min-width:48px;">
+        <div style="font-size:22px;">${getEventEmoji(e.type)}</div>
+      </div>
+      <div style="flex:1;">
+        <div style="font-weight:700;color:${isPast?'#666':'#fff'};font-size:15px;">${e.title}</div>
+        <div style="font-size:12px;color:#e05c2a;margin-top:2px;">${dateStr}${timeStr}</div>
+        ${e.location ? `<div style="font-size:12px;color:#888;margin-top:2px;">📍 ${e.location}</div>` : ''}
+        ${e.notes ? `<div style="font-size:12px;color:#666;margin-top:4px;">${e.notes}</div>` : ''}
+        <div style="font-size:11px;color:#444;margin-top:4px;">${e.type}</div>
+      </div>
+    </div>`;
+  };
+
+  let html = '';
+  if (upcoming.length) {
+    html += '<div style="font-size:11px;font-weight:700;color:#e05c2a;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Upcoming</div>';
+    html += upcoming.map(e => renderEvent(e, false)).join('');
+  }
+  if (past.length) {
+    html += '<div style="font-size:11px;font-weight:700;color:#444;letter-spacing:1px;text-transform:uppercase;margin:16px 0 10px;">Past</div>';
+    html += past.map(e => renderEvent(e, true)).join('');
+  }
+  if (!upcoming.length && !past.length) {
+    html = '<div style="color:#555;font-size:13px;text-align:center;padding:24px;">No events scheduled.</div>';
+  }
+  container.innerHTML = html;
+}
+
+function openSponsorTelegram() {
+  if (!telegramLink) {
+    toast('⚠️ Telegram link not set yet. Check back soon!');
+    return;
+  }
+  window.open(telegramLink, '_blank');
+}
+
+function formatTime12(t) {
+  if (!t) return '';
+  const [h, m] = t.split(':').map(Number);
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  const h12 = h % 12 || 12;
+  return `${h12}:${String(m).padStart(2,'0')} ${ampm}`;
+}
+
+function getEventEmoji(type) {
+  if (!type) return '📅';
+  if (type.includes('Meeting')) return '📅';
+  if (type.includes('Car Meet')) return '🏎️';
+  if (type.includes('Shop')) return '🔧';
+  if (type.includes('Track')) return '🏁';
+  if (type.includes('Sponsor')) return '🎉';
+  if (type.includes('Announcement')) return '📣';
+  return '📅';
+}
+
+// ════════════════════════════════════════════════════════
+// SPONSOR — ADMIN SIDE
+// ════════════════════════════════════════════════════════
+
+async function renderAdminSponsors() {
+  // Load config (telegram link + media data)
+  const cfgRes = await apiCall({ action: 'load_config' });
+  if (cfgRes.config) {
+    if (cfgRes.config.telegramLink) {
+      telegramLink = cfgRes.config.telegramLink;
+      const inp = document.getElementById('telegram-link-input');
+      if (inp) inp.value = telegramLink;
+      const prev = document.getElementById('telegram-link-preview');
+      if (prev) prev.textContent = '✅ Link saved: ' + telegramLink;
+    }
+    if (cfgRes.config.mediaData) {
+      mediaData = cfgRes.config.mediaData;
+    }
+  }
+
+  // Load events
+  const evRes = await apiCall({ action: 'load_events' });
+  sponsorEvents = evRes.events || [];
+  renderAdminEventsList();
+  renderSponsorMembersList();
+  renderMediaTrackerTable();
+}
+
+function renderSponsorMembersList() {
+  const container = document.getElementById('sponsor-members-list');
+  if (!container) return;
+  if (!customers.length) {
+    container.innerHTML = '<div style="color:#555;font-size:13px;text-align:center;padding:16px;">No members yet.</div>';
+    return;
+  }
+  const sorted = [...customers].sort((a,b) => a.full_name.localeCompare(b.full_name));
+  container.innerHTML = sorted.map(c => `
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:12px;background:#111;border-radius:8px;margin-bottom:8px;border:1px solid ${c.is_sponsor?'#e05c2a':'#222'};">
+      <div>
+        <div style="font-weight:700;color:${c.is_sponsor?'#e05c2a':'#fff'};">${c.full_name} ${c.is_sponsor?'⭐':''}</div>
+        <div style="font-size:12px;color:#666;">@${c.username} · ${c.tier} · ${c.points} pts</div>
+      </div>
+      <button onclick="toggleSponsor('${c.id}')" class="btn btn-sm" style="background:${c.is_sponsor?'#2a1500':'#1a1a1a'};color:${c.is_sponsor?'#e05c2a':'#aaa'};border:1px solid ${c.is_sponsor?'#e05c2a':'#333'};">
+        ${c.is_sponsor ? '⭐ Remove Sponsor' : '☆ Make Sponsor'}
+      </button>
+    </div>`).join('');
+}
+
+async function toggleSponsor(id) {
+  const res = await apiCall({ action: 'toggle_sponsor', admin_password: adminPw, id });
+  if (res.error) { toast('❌ ' + res.error); return; }
+  const idx = customers.findIndex(c => c.id === id);
+  if (idx >= 0) customers[idx] = res.member;
+  const name = res.member.full_name;
+  const granted = res.member.is_sponsor;
+  toast(granted ? `⭐ ${name} is now a Sponsor!` : `✅ Sponsor role removed from ${name}`);
+  renderSponsorMembersList();
+}
+
+async function saveTelegramLink() {
+  const link = document.getElementById('telegram-link-input').value.trim();
+  if (!link) { toast('⚠️ Enter a Telegram invite link'); return; }
+
+  // Merge into existing config
+  const cfgRes = await apiCall({ action: 'load_config' });
+  const existingConfig = cfgRes.config || {};
+  existingConfig.telegramLink = link;
+
+  const res = await apiCall({ action: 'save_config', admin_password: adminPw, config: existingConfig });
+  if (res.error) { toast('❌ ' + res.error); return; }
+
+  telegramLink = link;
+  const prev = document.getElementById('telegram-link-preview');
+  if (prev) prev.textContent = '✅ Link saved: ' + link;
+  toast('✅ Telegram link saved!');
+}
+
+// ── Event CRUD ────────────────────────────────────────────────────────────────
+
+function openEventModal(id) {
+  editingEventId = id || null;
+  const modal = document.getElementById('event-modal');
+  if (!modal) return;
+  modal.style.display = 'flex';
+  document.getElementById('event-modal-title').textContent = id ? 'Edit Event' : 'Add Event';
+  document.getElementById('ev-date').value = new Date().toISOString().split('T')[0];
+
+  if (id) {
+    const ev = sponsorEvents.find(e => e.id === id);
+    if (ev) {
+      document.getElementById('ev-title').value = ev.title || '';
+      document.getElementById('ev-type').value = ev.type || '📅 Meeting';
+      document.getElementById('ev-date').value = ev.date || '';
+      document.getElementById('ev-time').value = ev.time || '';
+      document.getElementById('ev-location').value = ev.location || '';
+      document.getElementById('ev-notes').value = ev.notes || '';
+    }
+  } else {
+    document.getElementById('ev-title').value = '';
+    document.getElementById('ev-time').value = '';
+    document.getElementById('ev-location').value = '';
+    document.getElementById('ev-notes').value = '';
+  }
+}
+
+function closeEventModal() {
+  document.getElementById('event-modal').style.display = 'none';
+  editingEventId = null;
+}
+
+async function saveEvent() {
+  const title = document.getElementById('ev-title').value.trim();
+  const type = document.getElementById('ev-type').value;
+  const date = document.getElementById('ev-date').value;
+  const time = document.getElementById('ev-time').value;
+  const location = document.getElementById('ev-location').value.trim();
+  const notes = document.getElementById('ev-notes').value.trim();
+
+  if (!title) { toast('⚠️ Event title is required'); return; }
+  if (!date)  { toast('⚠️ Date is required'); return; }
+
+  if (editingEventId) {
+    const idx = sponsorEvents.findIndex(e => e.id === editingEventId);
+    if (idx >= 0) sponsorEvents[idx] = { ...sponsorEvents[idx], title, type, date, time, location, notes };
+  } else {
+    sponsorEvents.push({
+      id: 'ev_' + Date.now(),
+      title, type, date, time, location, notes,
+    });
+  }
+
+  const res = await apiCall({ action: 'save_events', admin_password: adminPw, events: sponsorEvents });
+  if (res.error) { toast('❌ ' + res.error); return; }
+
+  toast(editingEventId ? '✅ Event updated!' : '✅ Event added!');
+  closeEventModal();
+  renderAdminEventsList();
+}
+
+async function deleteEvent(id) {
+  if (!confirm('Delete this event?')) return;
+  sponsorEvents = sponsorEvents.filter(e => e.id !== id);
+  const res = await apiCall({ action: 'save_events', admin_password: adminPw, events: sponsorEvents });
+  if (res.error) { toast('❌ ' + res.error); return; }
+  toast('🗑️ Event deleted');
+  renderAdminEventsList();
+}
+
+function renderAdminEventsList() {
+  const container = document.getElementById('admin-events-list');
+  if (!container) return;
+  if (!sponsorEvents.length) {
+    container.innerHTML = '<div style="color:#555;font-size:13px;text-align:center;padding:16px;">No events yet. Add your first one!</div>';
+    return;
+  }
+  const sorted = [...sponsorEvents].sort((a,b) => new Date(a.date) - new Date(b.date));
+  container.innerHTML = sorted.map(e => {
+    const d = new Date(e.date + 'T00:00:00');
+    const dateStr = d.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric' });
+    const timeStr = e.time ? ' · ' + formatTime12(e.time) : '';
+    return `
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:12px;background:#111;border-radius:8px;margin-bottom:8px;border-left:3px solid #e05c2a;">
+      <div>
+        <div style="font-weight:700;color:#fff;">${getEventEmoji(e.type)} ${e.title}</div>
+        <div style="font-size:12px;color:#e05c2a;">${dateStr}${timeStr}</div>
+        ${e.location ? `<div style="font-size:12px;color:#666;">📍 ${e.location}</div>` : ''}
+      </div>
+      <div style="display:flex;gap:6px;">
+        <button class="btn btn-sm" style="background:#1a1a1a;color:#aaa;" onclick="openEventModal('${e.id}')">Edit</button>
+        <button class="btn btn-sm" style="background:#2a1a1a;color:#e05c2a;" onclick="deleteEvent('${e.id}')">Delete</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+
+// ════════════════════════════════════════════════════════
+// MEDIA TRACKER — ADMIN
+// ════════════════════════════════════════════════════════
+
+function setMediaPeriod(p) {
+  mediaPeriod = p;
+  ['week','month','alltime'].forEach(id => {
+    const btn = document.getElementById('media-period-' + id);
+    if (!btn) return;
+    btn.style.background = p === id ? '#e05c2a' : '#1a1a1a';
+    btn.style.color      = p === id ? '#fff'    : '#aaa';
+  });
+  renderMediaTrackerTable();
+}
+
+async function loadMediaData() {
+  const res = await apiCall({ action: 'load_config' });
+  if (res.config && res.config.mediaData) {
+    mediaData = res.config.mediaData;
+  } else {
+    mediaData = {};
+  }
+}
+
+async function saveMediaData() {
+  const cfgRes = await apiCall({ action: 'load_config' });
+  const cfg = cfgRes.config || {};
+  cfg.mediaData = mediaData;
+  await apiCall({ action: 'save_config', admin_password: adminPw, config: cfg });
+}
+
+function getMediaKey() {
+  // 'alltime' is computed — not a stored key
+  const now = new Date();
+  if (mediaPeriod === 'week') {
+    const d = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+    const dayNum = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+    const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+    return `${d.getUTCFullYear()}-W${String(weekNo).padStart(2,'0')}`;
+  } else {
+    return `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
+  }
+}
+
+// Sums ALL period keys for a member (excludes the old static 'alltime' bucket)
+function getAllTimeEntry(memberId) {
+  const memberBuckets = mediaData[memberId] || {};
+  let posts = 0, refs = 0;
+  Object.entries(memberBuckets).forEach(([k, v]) => {
+    if (k === 'alltime') return; // skip legacy static key
+    posts += (v.posts || 0);
+    refs  += (v.refs  || 0);
+  });
+  return { posts, refs };
+}
+
+function getMediaEntry(memberId) {
+  if (mediaPeriod === 'alltime') return getAllTimeEntry(memberId);
+  const key = getMediaKey();
+  if (!mediaData[memberId]) mediaData[memberId] = {};
+  if (!mediaData[memberId][key]) mediaData[memberId][key] = { posts: 0, refs: 0 };
+  return mediaData[memberId][key];
+}
+
+function renderMediaTrackerTable() {
+  const container = document.getElementById('media-tracker-table');
+  if (!container) return;
+  const sponsors = customers.filter(c => c.is_sponsor);
+
+  if (!sponsors.length) {
+    container.innerHTML = '<div style="color:#555;font-size:13px;text-align:center;padding:16px;">No sponsors yet. Grant sponsor role to members first.</div>';
+    return;
+  }
+
+  const periodLabel = mediaPeriod === 'week' ? 'This Week' : mediaPeriod === 'month' ? 'This Month' : 'All Time';
+  const key = getMediaKey();
+  const isAllTime = mediaPeriod === 'alltime';
+
+  // Sort by total posts desc
+  const sorted = [...sponsors].sort((a,b) => {
+    const ae = getMediaEntry(a.id);
+    const be = getMediaEntry(b.id);
+    return (be.posts + be.refs) - (ae.posts + ae.refs);
+  });
+
+  container.innerHTML = `
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <thead>
+          <tr style="border-bottom:1px solid #333;">
+            <th style="text-align:left;padding:8px 10px;color:#888;font-weight:600;">Sponsor</th>
+            <th style="text-align:center;padding:8px 10px;color:#888;font-weight:600;">📸 Posts</th>
+            <th style="text-align:center;padding:8px 10px;color:#888;font-weight:600;">🔗 Referrals</th>
+            <th style="text-align:center;padding:8px 10px;color:#888;font-weight:600;">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${sorted.map((s, i) => {
+            const entry = getMediaEntry(s.id);
+            const total = entry.posts + entry.refs;
+            const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '';
+            return `<tr style="border-bottom:1px solid #1a1a1a;">
+              <td style="padding:10px;">
+                <div style="font-weight:700;color:#e05c2a;">${medal} ${s.full_name}</div>
+                <div style="font-size:11px;color:#555;">@${s.username}</div>
+              </td>
+              <td style="text-align:center;padding:10px;">
+                ${isAllTime ? `<span style="font-size:16px;font-weight:700;color:#fff;">${entry.posts}</span>` : `
+                <div style="display:flex;align-items:center;justify-content:center;gap:6px;">
+                  <button onclick="adjustMedia('${s.id}','posts',-1)" style="background:#1a1a1a;border:1px solid #333;color:#aaa;border-radius:4px;width:24px;height:24px;cursor:pointer;font-size:14px;line-height:1;">−</button>
+                  <span id="media-posts-${s.id}" style="font-size:16px;font-weight:700;color:#fff;min-width:28px;text-align:center;">${entry.posts}</span>
+                  <button onclick="adjustMedia('${s.id}','posts',1)" style="background:#e05c2a;border:none;color:#fff;border-radius:4px;width:24px;height:24px;cursor:pointer;font-size:14px;line-height:1;">+</button>
+                </div>`}
+              </td>
+              <td style="text-align:center;padding:10px;">
+                ${isAllTime ? `<span style="font-size:16px;font-weight:700;color:#fff;">${entry.refs}</span>` : `
+                <div style="display:flex;align-items:center;justify-content:center;gap:6px;">
+                  <button onclick="adjustMedia('${s.id}','refs',-1)" style="background:#1a1a1a;border:1px solid #333;color:#aaa;border-radius:4px;width:24px;height:24px;cursor:pointer;font-size:14px;line-height:1;">−</button>
+                  <span id="media-refs-${s.id}" style="font-size:16px;font-weight:700;color:#fff;min-width:28px;text-align:center;">${entry.refs}</span>
+                  <button onclick="adjustMedia('${s.id}','refs',1)" style="background:#e05c2a;border:none;color:#fff;border-radius:4px;width:24px;height:24px;cursor:pointer;font-size:14px;line-height:1;">+</button>
+                </div>`}
+              </td>
+              <td style="text-align:center;padding:10px;">
+                <span id="media-total-${s.id}" style="font-size:16px;font-weight:700;color:${total>0?'#e05c2a':'#555'};">${total}</span>
+              </td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+    <div style="font-size:11px;color:#444;margin-top:12px;text-align:right;">Period: ${periodLabel} · Key: ${key}</div>`;
+}
+
+let mediaDebounce = null;
+async function adjustMedia(id, field, delta) {
+  const entry = getMediaEntry(id);
+  entry[field] = Math.max(0, (entry[field] || 0) + delta);
+
+  // Update displayed numbers instantly
+  const postsEl = document.getElementById(`media-posts-${id}`);
+  const refsEl  = document.getElementById(`media-refs-${id}`);
+  const totalEl = document.getElementById(`media-total-${id}`);
+  if (postsEl) postsEl.textContent = entry.posts;
+  if (refsEl)  refsEl.textContent  = entry.refs;
+  if (totalEl) {
+    const t = entry.posts + entry.refs;
+    totalEl.textContent = t;
+    totalEl.style.color = t > 0 ? '#e05c2a' : '#555';
+  }
+
+  // Debounce the save so rapid clicks don't spam the API
+  clearTimeout(mediaDebounce);
+  mediaDebounce = setTimeout(async () => {
+    await saveMediaData();
+  }, 800);
+}
+
+// ════════════════════════════════════════════════════════
+// MEDIA STATS — MEMBER SPONSOR HUB
+// ════════════════════════════════════════════════════════
+
+async function renderMemberMediaStats() {
+  if (!currentUser) return;
+
+  // Load media data (public load — just config)
+  const cfgRes = await apiCall({ action: 'load_config' });
+  if (cfgRes.config && cfgRes.config.mediaData) {
+    mediaData = cfgRes.config.mediaData;
+  }
+
+  const myCard = document.getElementById('my-media-stats-card');
+  const lbCard = document.getElementById('sponsor-leaderboard-card');
+  if (!myCard || !lbCard) return;
+  myCard.style.display = 'block';
+  lbCard.style.display = 'block';
+
+  // My stats — show both week and month
+  const myStats = document.getElementById('my-media-stats');
+  const weekKey    = getWeekKey();
+  const monthKey   = getMonthKey();
+  const myWeek     = (mediaData[currentUser.id] && mediaData[currentUser.id][weekKey])    || { posts:0, refs:0 };
+  const myMonth    = (mediaData[currentUser.id] && mediaData[currentUser.id][monthKey])   || { posts:0, refs:0 };
+  const myAllTime  = getAllTimeEntry(currentUser.id);
+
+  myStats.innerHTML = `
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:6px;">
+      <div style="background:#111;border-radius:10px;padding:12px;text-align:center;border:1px solid #222;">
+        <div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">This Week</div>
+        <div style="display:flex;justify-content:space-around;">
+          <div><div style="font-size:20px;font-weight:900;color:#e05c2a;">${myWeek.posts}</div><div style="font-size:10px;color:#666;">Posts</div></div>
+          <div><div style="font-size:20px;font-weight:900;color:#e05c2a;">${myWeek.refs}</div><div style="font-size:10px;color:#666;">Refs</div></div>
+        </div>
+      </div>
+      <div style="background:#111;border-radius:10px;padding:12px;text-align:center;border:1px solid #222;">
+        <div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">This Month</div>
+        <div style="display:flex;justify-content:space-around;">
+          <div><div style="font-size:20px;font-weight:900;color:#e05c2a;">${myMonth.posts}</div><div style="font-size:10px;color:#666;">Posts</div></div>
+          <div><div style="font-size:20px;font-weight:900;color:#e05c2a;">${myMonth.refs}</div><div style="font-size:10px;color:#666;">Refs</div></div>
+        </div>
+      </div>
+      <div style="background:#111;border-radius:10px;padding:12px;text-align:center;border:1px solid #e05c2a22;">
+        <div style="font-size:10px;color:#e05c2a;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">All Time</div>
+        <div style="display:flex;justify-content:space-around;">
+          <div><div style="font-size:20px;font-weight:900;color:#e05c2a;">${myAllTime.posts}</div><div style="font-size:10px;color:#666;">Posts</div></div>
+          <div><div style="font-size:20px;font-weight:900;color:#e05c2a;">${myAllTime.refs}</div><div style="font-size:10px;color:#666;">Refs</div></div>
+        </div>
+      </div>
+    </div>`;
+
+  // Leaderboard — all sponsors ranked by this month posts+refs
+  const lb = document.getElementById('sponsor-leaderboard');
+  // We need all sponsors but we only have currentUser — use mediaData keys + load all members for names
+  // Since we have mediaData but not all member names client side, build from what we know
+  // Collect all member IDs that have media entries
+  const allIds = Object.keys(mediaData);
+  if (!allIds.length) {
+    lb.innerHTML = '<div style="color:#555;font-size:13px;text-align:center;padding:16px;">No activity tracked yet.</div>';
+    return;
+  }
+
+  // Build leaderboard from mediaData — we know currentUser's name; others show as "Sponsor"
+  const entries = allIds.map(id => {
+    const mEntry = getAllTimeEntry(id);
+    const total = mEntry.posts + mEntry.refs;
+    const name = id === currentUser.id ? currentUser.full_name : 'Sponsor';
+    return { id, name, posts: mEntry.posts, refs: mEntry.refs, total };
+  }).filter(e => e.total > 0).sort((a,b) => b.total - a.total);
+
+  if (!entries.length) {
+    lb.innerHTML = '<div style="color:#555;font-size:13px;text-align:center;padding:16px;">No activity this month yet.</div>';
+    return;
+  }
+
+  const medals = ['🥇','🥈','🥉'];
+  lb.innerHTML = entries.map((e, i) => `
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:${e.id===currentUser.id?'#1a0f00':'#111'};border-radius:8px;margin-bottom:6px;border:1px solid ${e.id===currentUser.id?'#e05c2a':'#1a1a1a'};">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:20px;">${medals[i] || (i+1)}</span>
+        <div>
+          <div style="font-weight:700;color:${e.id===currentUser.id?'#e05c2a':'#fff'};">${e.name}${e.id===currentUser.id?' (You)':''}</div>
+          <div style="font-size:11px;color:#555;">📸 ${e.posts} posts · 🔗 ${e.refs} referrals</div>
+        </div>
+      </div>
+      <div style="font-size:20px;font-weight:900;color:#e05c2a;">${e.total}</div>
+    </div>`).join('');
+}
+
+function getWeekKey() {
+  const now = new Date();
+  const d = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+  const dayNum = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+  return `${d.getUTCFullYear()}-W${String(weekNo).padStart(2,'0')}`;
+}
+
+function getMonthKey() {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
+}
+
+</script>
+
+  <!-- ══════════════════════════════════════
+       REWARD EDIT MODAL
+  ══════════════════════════════════════ -->
+  <div id="reward-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center;">
+    <div style="background:#1a1a1a;border:1px solid #333;border-radius:14px;padding:28px;width:100%;max-width:420px;box-shadow:0 8px 40px #000;">
+      <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:20px;" id="reward-modal-title">Add Reward</div>
+      <div style="margin-bottom:14px;">
+        <label style="font-size:12px;color:#888;display:block;margin-bottom:6px;">Emoji Icon</label>
+        <input id="rwd-icon" class="setting-input" type="text" placeholder="💵" maxlength="4" style="width:70px;">
+      </div>
+      <div style="margin-bottom:14px;">
+        <label style="font-size:12px;color:#888;display:block;margin-bottom:6px;">Reward Name</label>
+        <input id="rwd-title" class="setting-input" type="text" placeholder="$10 Off Service" style="width:100%;">
+      </div>
+      <div style="margin-bottom:14px;">
+        <label style="font-size:12px;color:#888;display:block;margin-bottom:6px;">Points Cost</label>
+        <input id="rwd-cost" class="setting-input" type="number" placeholder="50" min="1" style="width:100%;">
+      </div>
+      <div style="margin-bottom:20px;">
+        <label style="font-size:12px;color:#888;display:block;margin-bottom:6px;">Minimum Tier Required</label>
+        <select id="rwd-tier" class="setting-input" style="width:100%;">
+          <option value="STOCK">🔧 STOCK (any member)</option>
+          <option value="TUNED">⚙️ TUNED</option>
+          <option value="BUILT">🚀 BUILT</option>
+          <option value="ELITE">🏁 MOODY ELITE</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:10px;">
+        <button class="btn btn-primary" style="flex:1;" onclick="saveRewardModal()">Save</button>
+        <button class="btn btn-outline" style="flex:1;" onclick="closeRewardModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 </body>
 </html>
