@@ -1009,6 +1009,15 @@
       e.target.reset();
     }, 4000);
   }
+
+  function openMembersPortal() {
+    document.getElementById('members-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMembersPortal() {
+    document.getElementById('members-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
 </script>
 
 <!-- ════════ MEMBERS PORTAL OVERLAY ════════ -->
