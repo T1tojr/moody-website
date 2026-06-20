@@ -2707,11 +2707,22 @@ async function renderMemberMediaStats() {
     return;
   }
 
-  // Build leaderboard from mediaData — we know currentUser's name; others show as "Sponsor"
+  // Fetch all members to get real names for leaderboard
+  let memberMap = {};
+  try {
+    const mRes = await apiCall({ action: 'listSponsors' });
+    if (mRes && mRes.members) {
+      mRes.members.forEach(m => { memberMap[m.id] = m.full_name || m.username || 'Sponsor'; });
+    }
+  } catch(e) { /* fallback to currentUser only */ }
+
+  // Build leaderboard with real names
   const entries = allIds.map(id => {
     const mEntry = getAllTimeEntry(id);
     const total = mEntry.posts + mEntry.refs;
-    const name = id === currentUser.id ? currentUser.full_name : 'Sponsor';
+    const name = id === currentUser.id
+      ? currentUser.full_name
+      : (memberMap[id] || 'Sponsor');
     return { id, name, posts: mEntry.posts, refs: mEntry.refs, total };
   }).filter(e => e.total > 0).sort((a,b) => b.total - a.total);
 
