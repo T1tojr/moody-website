@@ -985,7 +985,7 @@
     <p class="section-sub fade-up" style="text-align:center;">Book your appointment or reach out — we'll figure out exactly what your car needs.</p>
     <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:40px;" class="fade-up">
       <a href="#" class="btn-primary" onclick="openBookingModal(); return false;">Book Appointment</a>
-      <a href="#" class="btn-outline">Moody Members →</a>
+      <a href="#" class="btn-outline" onclick="openMembersPortal(); return false;">Moody Members →</a>
     </div>
   </div>
 </section>
@@ -1033,11 +1033,12 @@
       </div>
       <div>
         <form onsubmit="handleContact(event)" style="display:flex;flex-direction:column;gap:14px;">
-          <input type="text" placeholder="Your Name" required style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:14px 16px;border-radius:8px;font-size:14px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#e05c2a'" onblur="this.style.borderColor='#2a2a2a'">
-          <input type="email" placeholder="Email Address" required style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:14px 16px;border-radius:8px;font-size:14px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#e05c2a'" onblur="this.style.borderColor='#2a2a2a'">
-          <input type="text" placeholder="Vehicle (Year / Make / Model)" style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:14px 16px;border-radius:8px;font-size:14px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#e05c2a'" onblur="this.style.borderColor='#2a2a2a'">
-          <textarea placeholder="What do you need? Tell us about your goals…" rows="4" style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:14px 16px;border-radius:8px;font-size:14px;outline:none;resize:vertical;transition:border-color 0.2s;font-family:inherit;" onfocus="this.style.borderColor='#e05c2a'" onblur="this.style.borderColor='#2a2a2a'"></textarea>
-          <button type="submit" class="btn-primary" style="width:100%;text-align:center;">Send Message</button>
+          <input type="text" id="ct-name" placeholder="Your Name" required style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:14px 16px;border-radius:8px;font-size:14px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#e05c2a'" onblur="this.style.borderColor='#2a2a2a'">
+          <input type="email" id="ct-email" placeholder="Email Address" required style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:14px 16px;border-radius:8px;font-size:14px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#e05c2a'" onblur="this.style.borderColor='#2a2a2a'">
+          <input type="tel" id="ct-phone" placeholder="Phone Number" style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:14px 16px;border-radius:8px;font-size:14px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#e05c2a'" onblur="this.style.borderColor='#2a2a2a'">
+          <input type="text" id="ct-vehicle" placeholder="Vehicle (Year / Make / Model)" style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:14px 16px;border-radius:8px;font-size:14px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#e05c2a'" onblur="this.style.borderColor='#2a2a2a'">
+          <textarea id="ct-message" placeholder="What do you need? Tell us about your goals…" rows="4" style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:14px 16px;border-radius:8px;font-size:14px;outline:none;resize:vertical;transition:border-color 0.2s;font-family:inherit;" onfocus="this.style.borderColor='#e05c2a'" onblur="this.style.borderColor='#2a2a2a'"></textarea>
+          <button type="submit" id="ct-submit-btn" class="btn-primary" style="width:100%;text-align:center;">Send Message</button>
         </form>
       </div>
     </div>
@@ -1062,18 +1063,18 @@
     </div>
     <div class="footer-col">
       <h4>Connect</h4>
-      <a href="#">Instagram</a>
-      <a href="#">TikTok</a>
-      <a href="#">YouTube</a>
-      <a href="#">Moody Members</a>
+      <a href="https://www.instagram.com/moody.performance/" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@moodyperformance" target="_blank">TikTok</a>
+      <a href="https://www.youtube.com/@moodyperformance" target="_blank">YouTube</a>
+      <a href="#" onclick="openMembersPortal(); return false;">Moody Members</a>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 Moody Performance. All rights reserved.</span>
     <div class="socials">
-      <a href="#">IG</a>
-      <a href="#">TT</a>
-      <a href="#">YT</a>
+      <a href="https://www.instagram.com/moody.performance/" target="_blank">IG</a>
+      <a href="https://www.tiktok.com/@moodyperformance" target="_blank">TT</a>
+      <a href="https://www.youtube.com/@moodyperformance" target="_blank">YT</a>
     </div>
   </div>
 </footer>
@@ -1109,18 +1110,47 @@
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
   // Contact form
-  function handleContact(e) {
+  async function handleContact(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('button[type="submit"]');
-    btn.textContent = 'Message Sent ✓';
-    btn.style.background = '#1a6a1a';
+    const btn = document.getElementById('ct-submit-btn');
+    btn.textContent = 'Sending…';
     btn.disabled = true;
-    setTimeout(() => {
+    const name    = document.getElementById('ct-name').value.trim();
+    const email   = document.getElementById('ct-email').value.trim();
+    const phone   = document.getElementById('ct-phone').value.trim() || 'Not provided';
+    const vehicle = document.getElementById('ct-vehicle').value.trim() || 'Not provided';
+    const message = document.getElementById('ct-message').value.trim();
+    // parse vehicle into year/make/model parts
+    const parts = vehicle.split(/[\s\/]+/);
+    const year  = parts[0] || 'N/A';
+    const make  = parts[1] || 'N/A';
+    const model = parts.slice(2).join(' ') || 'N/A';
+    try {
+      const res = await fetch('https://superagent-df2088bd.base44.app/functions/sendAppointment', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, year, make, model, reason: message })
+      });
+      const data = await res.json();
+      if (res.ok && data.ok) {
+        btn.textContent = 'Message Sent ✓';
+        btn.style.background = '#1a6a1a';
+        setTimeout(() => {
+          btn.textContent = 'Send Message';
+          btn.style.background = '';
+          btn.disabled = false;
+          e.target.reset();
+        }, 4000);
+      } else {
+        alert('Something went wrong: ' + (data.error || 'Please try again.'));
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+      }
+    } catch(err) {
+      alert('Network error — please check your connection and try again.');
       btn.textContent = 'Send Message';
-      btn.style.background = '';
       btn.disabled = false;
-      e.target.reset();
-    }, 4000);
+    }
   }
 
   function openMembersPortal() {
