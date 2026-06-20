@@ -2084,6 +2084,7 @@ function renderAdminCustomers() {
             <td>
               <button class="btn btn-outline btn-sm" onclick="openLogService('${c.id}')">+ Service</button>
               <button class="btn btn-sm" style="background:#1a1a1a;color:#aaa;margin-left:4px;" onclick="adjustPoints('${c.id}')">Adjust Pts</button>
+              <button class="btn btn-sm" style="background:#0a1a2a;color:#4a9eff;margin-left:4px;" onclick="viewMemberHistory('${c.id}')">History</button>
               <button class="btn btn-sm" style="background:#2a1a1a;color:#e05c2a;margin-left:4px;" onclick="deleteMember('${c.id}')">Delete</button>
             </td>
           </tr>`).join('') : '<tr><td colspan="7" style="color:#555;text-align:center;padding:20px;">No members found</td></tr>'}
@@ -2147,6 +2148,79 @@ async function openLogService(id) {
   const idx = customers.findIndex(c=>c.id===id);
   if(idx>=0) customers[idx] = res.member;
   toast(`✅ Service logged! +${Math.floor(parseFloat(amount)*2)} pts`);
+  renderAdminCustomers();
+}
+
+function viewMemberHistory(id) {
+  const member = customers.find(c => c.id === id);
+  if (!member) return;
+  const modal = document.getElementById('svc-history-modal');
+  document.getElementById('svc-history-modal-title').textContent = `${member.full_name} — Service History`;
+  renderSvcHistoryList(member);
+  modal.style.display = 'flex';
+}
+
+function renderSvcHistoryList(member) {
+  const list = document.getElementById('svc-history-list');
+  const hist = (member.history || []).slice().reverse();
+  if (!hist.length) {
+    list.innerHTML = '<div style="color:#555;text-align:center;padding:20px;">No service history yet.</div>';
+    return;
+  }
+  list.innerHTML = hist.map((h, reversedIdx) => {
+    const realIdx = (member.history.length - 1) - reversedIdx;
+    return `
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:12px 14px;background:#111;border-radius:10px;margin-bottom:8px;border:1px solid #222;">
+      <div style="flex:1;">
+        <div style="font-weight:700;color:#fff;font-size:14px;">${h.type}</div>
+        <div style="font-size:12px;color:#666;margin-top:2px;">${h.date}${h.notes ? ' · ' + h.notes : ''}</div>
+        ${parseFloat(h.amount) > 0 ? `<div style="font-size:12px;color:#888;margin-top:2px;">$${h.amount}</div>` : ''}
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;margin-left:12px;">
+        <div style="font-weight:700;color:${h.points < 0 ? '#888' : '#e05c2a'};font-size:15px;">${h.points < 0 ? '' : '+'}${h.points} pts</div>
+        <button onclick="deleteServiceEntry('${member.id}', ${realIdx})" style="background:#2a1a1a;border:1px solid #e05c2a22;color:#e05c2a;border-radius:6px;padding:4px 10px;font-size:12px;cursor:pointer;">🗑️</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function closeSvcHistoryModal() {
+  document.getElementById('svc-history-modal').style.display = 'none';
+}
+
+async function deleteServiceEntry(memberId, entryIndex) {
+  if (!confirm('Remove this service entry? Points awarded will also be reversed.')) return;
+  const member = customers.find(c => c.id === memberId);
+  if (!member) return;
+
+  const entry = member.history[entryIndex];
+  const pointsToReverse = entry.points || 0;
+  const amountToReverse = parseFloat(entry.amount) || 0;
+
+  // Remove entry from history
+  const newHistory = member.history.filter((_, i) => i !== entryIndex);
+  const newPoints = Math.max(0, (member.points || 0) - pointsToReverse);
+  const newSpent  = Math.max(0, (member.total_spent || 0) - amountToReverse);
+  const newVisits = Math.max(0, (member.visits || 0) - (amountToReverse > 0 ? 1 : 0));
+
+  const res = await apiCall({
+    action: 'update',
+    admin_password: adminPw,
+    id: memberId,
+    history: newHistory,
+    points: newPoints,
+    total_spent: newSpent,
+    visits: newVisits,
+  });
+
+  if (res.error) { toast('❌ ' + res.error); return; }
+
+  // Update local cache
+  const idx = customers.findIndex(c => c.id === memberId);
+  if (idx >= 0) customers[idx] = res.member;
+
+  toast(`✅ Entry removed. ${pointsToReverse > 0 ? pointsToReverse + ' pts reversed.' : ''}`);
+  renderSvcHistoryList(res.member);
   renderAdminCustomers();
 }
 
@@ -2762,6 +2836,19 @@ function getMonthKey() {
 
 </script>
 
+
+  <!-- ══════════════════════════════════════
+       SERVICE HISTORY MODAL (ADMIN)
+  ══════════════════════════════════════ -->
+  <div id="svc-history-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:10000;align-items:center;justify-content:center;">
+    <div style="background:#1a1a1a;border:1px solid #333;border-radius:14px;padding:28px;width:100%;max-width:520px;max-height:80vh;overflow-y:auto;box-shadow:0 8px 40px #000;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+        <div style="font-size:18px;font-weight:700;color:#fff;" id="svc-history-modal-title">Service History</div>
+        <button onclick="closeSvcHistoryModal()" style="background:none;border:none;color:#888;font-size:22px;cursor:pointer;">✕</button>
+      </div>
+      <div id="svc-history-list"></div>
+    </div>
+  </div>
   <!-- ══════════════════════════════════════
        REWARD EDIT MODAL
   ══════════════════════════════════════ -->
