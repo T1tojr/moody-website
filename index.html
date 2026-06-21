@@ -746,7 +746,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#videos">Videos</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact">About</a></li>
     <li><a href="tel:+19095737680" class="nav-cta">📞 Call Us</a></li>
     <li><a href="#" onclick="openMembersPortal(); return false;">Members</a></li>
   </ul>
@@ -916,10 +916,11 @@
 ════════════════════════════════════ -->
 <section id="contact" style="background:var(--dark);">
   <div class="container">
-    <div class="section-label fade-up">Get In Touch</div>
-    <h2 class="section-title fade-up">Contact Us</h2>
-    <p class="section-sub fade-up">Hit us up — we'll get back to you fast.</p>
+    <div class="section-label fade-up">Who We Are</div>
+    <h2 class="section-title fade-up">About Us</h2>
+    <p class="section-sub fade-up">Built in the IE. Built different.</p>
     <div style="margin-top:50px;display:grid;grid-template-columns:1fr 1fr;gap:40px;" class="fade-up">
+      <!-- Left: Contact Info -->
       <div>
         <div style="display:flex;flex-direction:column;gap:24px;">
           <div style="display:flex;gap:16px;align-items:flex-start;">
@@ -950,17 +951,33 @@
               <div style="font-size:13px;color:var(--muted);">Mon–Fri: 9AM – 6PM<br>Sat: 9AM – 6PM<br>Sun: Closed</div>
             </div>
           </div>
+          <div style="margin-top:8px;">
+            <a href="tel:+19095737680" class="btn-primary" style="display:inline-block;padding:14px 28px;font-size:14px;">📞 Call Us Now</a>
+          </div>
         </div>
       </div>
-      <div>
-        <form onsubmit="handleContact(event)" style="display:flex;flex-direction:column;gap:14px;">
-          <input type="text" id="ct-name" placeholder="Your Name" required style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:14px 16px;border-radius:8px;font-size:14px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#e05c2a'" onblur="this.style.borderColor='#2a2a2a'">
-          <input type="email" id="ct-email" placeholder="Email Address" required style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:14px 16px;border-radius:8px;font-size:14px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#e05c2a'" onblur="this.style.borderColor='#2a2a2a'">
-          <input type="tel" id="ct-phone" placeholder="Phone Number" style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:14px 16px;border-radius:8px;font-size:14px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#e05c2a'" onblur="this.style.borderColor='#2a2a2a'">
-          <input type="text" id="ct-vehicle" placeholder="Vehicle (Year / Make / Model)" style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:14px 16px;border-radius:8px;font-size:14px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#e05c2a'" onblur="this.style.borderColor='#2a2a2a'">
-          <textarea id="ct-message" placeholder="What do you need? Tell us about your goals…" rows="4" style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:14px 16px;border-radius:8px;font-size:14px;outline:none;resize:vertical;transition:border-color 0.2s;font-family:inherit;" onfocus="this.style.borderColor='#e05c2a'" onblur="this.style.borderColor='#2a2a2a'"></textarea>
-          <button type="submit" id="ct-submit-btn" class="btn-primary" style="width:100%;text-align:center;">Send Message</button>
-        </form>
+      <!-- Right: About Story -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="background:#111;border:1px solid #222;border-radius:14px;padding:28px;">
+          <div style="font-size:32px;margin-bottom:12px;">🔧</div>
+          <h3 style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px;">Our Story</h3>
+          <p style="font-size:14px;color:var(--muted);line-height:1.8;margin:0;">Moody Performance was founded with one goal — push your car to its full potential. Based in Montclair, CA, we've been tuning, building, and transforming vehicles across the Inland Empire. Whether you're chasing track times or building a show-stopper, we bring the same passion to every build.</p>
+        </div>
+        <div style="background:#111;border:1px solid #222;border-radius:14px;padding:28px;">
+          <div style="font-size:32px;margin-bottom:12px;">⚡</div>
+          <h3 style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px;">What We Stand For</h3>
+          <p style="font-size:14px;color:var(--muted);line-height:1.8;margin:0;">No shortcuts. No guesswork. Every car that leaves our shop is dialed in with precision. We specialize in performance tuning, custom fabrication, suspension builds, and everything in between. If it goes fast, we build it right.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="background:#111;border:1px solid #e05c2a33;border-radius:12px;padding:20px;text-align:center;">
+            <div style="font-size:28px;font-weight:900;color:#e05c2a;">100+</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:1px;">Builds Completed</div>
+          </div>
+          <div style="background:#111;border:1px solid #e05c2a33;border-radius:12px;padding:20px;text-align:center;">
+            <div style="font-size:28px;font-weight:900;color:#e05c2a;">IE</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:1px;">Inland Empire Based</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -980,7 +997,7 @@
       <a href="#services">Services</a>
       <a href="#gallery">Gallery</a>
       <a href="#videos">Videos</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact">About</a>
     </div>
     <div class="footer-col">
       <h4>Connect</h4>
