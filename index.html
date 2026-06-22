@@ -849,6 +849,12 @@
   @media (max-width: 768px) {
     .about-grid { grid-template-columns: 1fr; gap: 28px; }
   }
+
+  /* ── HAMBURGER ANIMATION ── */
+  .nav-hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .nav-hamburger.active span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  .nav-hamburger span { transition: transform 0.3s ease, opacity 0.3s ease; }
 </style>
 </head>
 <body>
@@ -1144,7 +1150,18 @@
   // Mobile nav
   function toggleNav() {
     document.getElementById('navLinks').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('active');
   }
+  // Close nav when any link is tapped on mobile
+  document.addEventListener('DOMContentLoaded', function() {
+    var links = document.querySelectorAll('.nav-links a');
+    links.forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('navLinks').classList.remove('open');
+        document.getElementById('hamburger').classList.remove('active');
+      });
+    });
+  });
 
   // Close nav on link click
   document.querySelectorAll('.nav-links a').forEach(a => {
