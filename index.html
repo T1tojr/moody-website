@@ -463,13 +463,28 @@
   .socials a:hover { color: var(--orange); }
 
   /* ── MOBILE ── */
+  /* ══════════════════════════════════════
+     TABLET (≤ 900px)
+  ══════════════════════════════════════ */
   @media (max-width: 900px) {
     nav { padding: 16px 20px; }
-    .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(8,8,8,0.98); padding: 20px; gap: 20px; border-bottom: 1px solid var(--border); }
+    .nav-links {
+      display: none; flex-direction: column;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: rgba(8,8,8,0.98);
+      padding: 20px 24px; gap: 6px;
+      border-bottom: 1px solid var(--border);
+    }
     .nav-links.open { display: flex; }
+    .nav-links li a {
+      display: block; padding: 12px 0;
+      font-size: 15px; border-bottom: 1px solid #1a1a1a;
+    }
+    .nav-links li:last-child a { border-bottom: none; }
+    .nav-cta { margin-top: 8px; text-align: center; border-radius: 8px !important; }
     .nav-hamburger { display: flex; }
     section { padding: 70px 20px; }
-    .stats-grid { grid-template-columns: 2fr 2fr; gap: 30px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
     .services-grid { grid-template-columns: 1fr; }
     .gallery-grid { grid-template-columns: 1fr; }
     .gallery-item:nth-child(1),
@@ -482,6 +497,99 @@
     .footer-inner { grid-template-columns: 1fr; gap: 30px; }
     .footer-bottom { flex-direction: column; gap: 12px; }
     #cta { padding: 70px 20px; }
+    /* About section tablet */
+    #contact .container > div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  /* ══════════════════════════════════════
+     MOBILE (≤ 480px)
+  ══════════════════════════════════════ */
+  @media (max-width: 480px) {
+    /* NAV */
+    nav { padding: 14px 16px; }
+    .nav-logo img { height: 36px; }
+
+    /* HERO */
+    #hero { min-height: 100svh; }
+    .hero-content { padding: 0 16px; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 3px; margin-bottom: 14px; }
+    .hero-title { font-size: clamp(42px, 13vw, 64px); letter-spacing: -1px; }
+    .hero-sub { font-size: 14px; margin-top: 16px; }
+    .hero-btns {
+      flex-direction: column; align-items: center;
+      gap: 12px; margin-top: 28px;
+    }
+    .hero-btns a { width: 100%; max-width: 300px; text-align: center; padding: 16px 20px; font-size: 13px; }
+
+    /* STATS */
+    #stats { padding: 28px 16px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .stat-num { font-size: 28px; }
+    .stat-label { font-size: 11px; }
+
+    /* SECTIONS */
+    section { padding: 56px 16px; }
+    .section-title { font-size: clamp(28px, 8vw, 40px); }
+    .section-sub { font-size: 14px; }
+
+    /* SERVICES */
+    .services-grid { grid-template-columns: 1fr; gap: 14px; }
+    .service-card { padding: 22px 18px; }
+    .service-icon { font-size: 28px; }
+    .service-name { font-size: 16px; }
+    .service-desc { font-size: 13px; }
+
+    /* GALLERY */
+    .gallery-grid { grid-template-columns: 1fr; gap: 10px; }
+    .gallery-item video,
+    .gallery-item img { min-height: 200px; border-radius: 10px; }
+
+    /* VIDEOS */
+    .videos-grid { grid-template-columns: 1fr; gap: 14px; }
+    .video-card { border-radius: 10px; }
+
+    /* ABOUT / CONTACT */
+    #contact .container > div[style*="grid"] {
+      grid-template-columns: 1fr !important;
+      gap: 24px !important;
+    }
+    #contact .container > div > div:first-child {
+      gap: 18px !important;
+    }
+    #contact .container > div > div:last-child {
+      gap: 14px !important;
+    }
+
+    /* CTA */
+    #cta { padding: 56px 16px; }
+    #cta h2 { font-size: clamp(26px, 8vw, 36px); }
+    #cta p { font-size: 14px; }
+    #cta .hero-btns a { width: 100%; max-width: 300px; text-align: center; }
+
+    /* FOOTER */
+    footer { padding: 40px 16px 24px; }
+    .footer-inner { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+    .footer-col { align-items: center; }
+    .footer-bottom { flex-direction: column; gap: 10px; font-size: 12px; }
+    .socials { gap: 16px; }
+
+    /* SCROLL INDICATOR */
+    .scroll-indicator { bottom: 20px; }
+
+    /* MEMBERS PORTAL NAV mobile */
+    #members-overlay .nav { padding: 14px 16px; flex-wrap: wrap; gap: 10px; }
+    #members-overlay .nav-tabs { flex-wrap: wrap; gap: 6px; }
+    #members-overlay .nav-tab { font-size: 11px; padding: 6px 12px; }
+    #members-overlay .view { padding: 16px; }
+    .grid-3 { grid-template-columns: 1fr !important; }
+    .grid-2 { grid-template-columns: 1fr !important; }
+    table { font-size: 12px; }
+    th, td { padding: 8px 6px; }
+
+    /* SVC HISTORY MODAL */
+    #svc-history-modal > div { padding: 20px 16px; margin: 0 12px; max-height: 85vh; }
   }
 
   /* ── FADE IN ANIMATION ── */
@@ -728,9 +836,19 @@
   .booking-field textarea { resize: vertical; min-height: 90px; }
   .booking-field select option { background: #1a1a1a; }
   .booking-submit:disabled { background: #555; cursor: not-allowed; }
-  @media (max-width: 480px) {
-  }
 
+
+
+  /* ── ABOUT GRID ── */
+  .about-grid {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
+  }
 </style>
 </head>
 <body>
@@ -759,7 +877,7 @@
      HERO
 ════════════════════════════════════ -->
 <section id="hero">
-  <video class="hero-video-bg" autoplay muted loop playsinline>
+  <video class="hero-video-bg" autoplay muted loop playsinline webkit-playsinline>
     <source src="https://base44.app/api/apps/6a225b8e777e8e9ddf2088bd/files/mp/public/6a225b8e777e8e9ddf2088bd/34a6441d4_moody-vid1.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
@@ -919,7 +1037,7 @@
     <div class="section-label fade-up">Who We Are</div>
     <h2 class="section-title fade-up">About Us</h2>
     <p class="section-sub fade-up">Built in the IE. Built different.</p>
-    <div style="margin-top:50px;display:grid;grid-template-columns:1fr 1fr;gap:40px;" class="fade-up">
+    <div class="fade-up about-grid">
       <!-- Left: Contact Info -->
       <div>
         <div style="display:flex;flex-direction:column;gap:24px;">
