@@ -1163,13 +1163,6 @@
     });
   });
 
-  // Close nav on link click
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => {
-      document.getElementById('navLinks').classList.remove('open');
-    });
-  });
-
   // Fade-up on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
