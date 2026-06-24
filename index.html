@@ -855,6 +855,70 @@
   .nav-hamburger.active span:nth-child(2) { opacity: 0; }
   .nav-hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
   .nav-hamburger span { transition: transform 0.3s ease, opacity 0.3s ease; }
+
+  /* ── MERCH SECTION ── */
+  #merch { background: #0d0d0d; border-top: 1px solid #1a1a1a; }
+  .merch-coming-soon {
+    margin-top: 48px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 20px;
+    padding: 60px 40px;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .merch-coming-soon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top, rgba(224,92,42,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .merch-icon { font-size: 56px; margin-bottom: 20px; }
+  .merch-cs-title {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .merch-cs-sub {
+    font-size: 15px;
+    color: #888;
+    line-height: 1.6;
+    max-width: 400px;
+    margin: 0 auto 32px;
+  }
+  .merch-notify {
+    display: flex;
+    gap: 10px;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .merch-notify input {
+    flex: 1;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.2s;
+  }
+  .merch-notify input:focus { border-color: var(--orange); }
+  .merch-notify .btn { white-space: nowrap; }
+  @media (max-width: 480px) {
+    .merch-coming-soon { padding: 40px 20px; }
+    .merch-notify { flex-direction: column; }
+    .merch-notify input, .merch-notify .btn { width: 100%; }
+    .merch-cs-title { font-size: 22px; }
+  }
 </style>
 </head>
 <body>
@@ -872,6 +936,7 @@
     <li><a href="#videos">Videos</a></li>
     <li><a href="#contact">About</a></li>
     <li><a href="tel:+19095737680" class="nav-cta">📞 Call Us</a></li>
+    <li><a href="#merch">Merch</a></li>
     <li><a href="#" onclick="openMembersPortal(); return false;">Members</a></li>
   </ul>
   <div class="nav-hamburger" id="hamburger" onclick="toggleNav()">
@@ -1016,6 +1081,29 @@
           <source src="https://base44.app/api/apps/6a225b8e777e8e9ddf2088bd/files/mp/public/6a225b8e777e8e9ddf2088bd/7b0838135_moody-vid2.mp4" type="video/mp4">
         </video>
         <div class="video-card-label">Clip 02 — Moody Performance</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     MERCH
+════════════════════════════════════ -->
+<section id="merch">
+  <div class="container">
+    <div class="section-label fade-up">Coming Soon</div>
+    <h2 class="section-title fade-up">Moody Performance <span style="color:var(--orange)">Merch</span></h2>
+    <p class="section-sub fade-up">Official gear is on the way. Rep the brand that runs different.</p>
+    <div class="merch-coming-soon fade-up">
+      <div class="merch-icon">🧢</div>
+      <div class="merch-cs-title">Drop Coming Soon</div>
+      <div class="merch-cs-sub">Hats, hoodies, tees & more — built for the culture. Stay tuned.</div>
+      <div class="merch-notify">
+        <input type="email" id="merch-email" placeholder="Enter your email to get notified" />
+        <button class="btn btn-primary" onclick="notifyMerch()">Notify Me</button>
+      </div>
+      <div id="merch-msg" style="display:none;margin-top:14px;color:#e05c2a;font-weight:700;font-size:14px;">
+        You're on the list! We'll hit you when it drops. 🔥
       </div>
     </div>
   </div>
@@ -2954,6 +3042,19 @@ function getMonthKey() {
 
 
 <script>
+
+  function notifyMerch() {
+    var email = document.getElementById('merch-email').value.trim();
+    if (!email || !email.includes('@')) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+    document.getElementById('merch-msg').style.display = 'block';
+    document.getElementById('merch-email').value = '';
+    document.getElementById('merch-email').disabled = true;
+    document.querySelector('.merch-notify .btn').disabled = true;
+  }
+
 </script>
 
 </body>
