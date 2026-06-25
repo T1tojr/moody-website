@@ -894,29 +894,8 @@
     max-width: 400px;
     margin: 0 auto 32px;
   }
-  .merch-notify {
-    display: flex;
-    gap: 10px;
-    max-width: 420px;
-    margin: 0 auto;
-  }
-  .merch-notify input {
-    flex: 1;
-    background: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 8px;
-    padding: 12px 16px;
-    color: #fff;
-    font-size: 14px;
-    outline: none;
-    transition: border 0.2s;
-  }
-  .merch-notify input:focus { border-color: var(--orange); }
-  .merch-notify .btn { white-space: nowrap; }
   @media (max-width: 480px) {
     .merch-coming-soon { padding: 40px 20px; }
-    .merch-notify { flex-direction: column; }
-    .merch-notify input, .merch-notify .btn { width: 100%; }
     .merch-cs-title { font-size: 22px; }
   }
 </style>
@@ -1098,13 +1077,7 @@
       <div class="merch-icon">🧢</div>
       <div class="merch-cs-title">Drop Coming Soon</div>
       <div class="merch-cs-sub">Hats, hoodies, tees & more — built for the culture. Stay tuned.</div>
-      <div class="merch-notify">
-        <input type="email" id="merch-email" placeholder="Enter your email to get notified" />
-        <button class="btn btn-primary" onclick="notifyMerch()">Notify Me</button>
-      </div>
-      <div id="merch-msg" style="display:none;margin-top:14px;color:#e05c2a;font-weight:700;font-size:14px;">
-        You're on the list! We'll hit you when it drops. 🔥
-      </div>
+
     </div>
   </div>
 </section>
@@ -3042,17 +3015,7 @@ function getMonthKey() {
 
 
 <script>
-
-  function notifyMerch() {
-    var email = document.getElementById('merch-email').value.trim();
-    if (!email || !email.includes('@')) {
-      alert('Please enter a valid email address.');
-      return;
-    }
     document.getElementById('merch-msg').style.display = 'block';
-    document.getElementById('merch-email').value = '';
-    document.getElementById('merch-email').disabled = true;
-    document.querySelector('.merch-notify .btn').disabled = true;
   }
 
 </script>
